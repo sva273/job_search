@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete Tag" %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header card-header-danger">
+                <h4 class="mb-0"><i class="bi bi-exclamation-triangle"></i> {% trans "Delete Tag" %}</h4>
+            </div>
+            <div class="card-body">
+                {% blocktrans with tag_name=tag.name %}
+                <p>Are you sure you want to delete the tag <strong>"{{ tag_name }}"</strong>?</p>
+                {% endblocktrans %}
+                <p class="text-danger">
+                    <i class="bi bi-info-circle"></i> 
+                    {% trans "This action cannot be undone. Job entries using this tag will have this tag removed." %}
+                </p>
+                
+                <form method="post" class="mt-4">
+                    {% csrf_token %}
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'jobs:tags_list' %}" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> {% trans "Cancel" %}
+                        </a>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> {% trans "Delete" %}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

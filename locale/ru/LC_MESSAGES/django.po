@@ -1,0 +1,1162 @@
+# Russian translations for job_search project
+# Copyright (C) 2024
+# This file is distributed under the same license as the job_search project.
+msgid ""
+msgstr ""
+"Project-Id-Version: job_search 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 17:42+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14) ? 2 : 3);\n"
+
+msgid "Not Applied"
+msgstr "Не подано"
+
+msgid "Applied"
+msgstr "Подано"
+
+msgid "Application Confirmed"
+msgstr "Подтверждено"
+
+msgid "Response Received"
+msgstr "Получен ответ"
+
+msgid "Rejected"
+msgstr "Отказ"
+
+msgid "Accepted"
+msgstr "Принято"
+
+msgid "High"
+msgstr "Высокий"
+
+msgid "Medium"
+msgstr "Средний"
+
+msgid "Low"
+msgstr "Низкий"
+
+msgid "Remote"
+msgstr "Удаленно"
+
+msgid "Office"
+msgstr "Офис"
+
+msgid "Home Office"
+msgstr "Домашний офис"
+
+msgid "Hybrid"
+msgstr "Гибридный"
+
+msgid "Flexible"
+msgstr "Гибкий"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Indeed"
+msgstr "Indeed"
+
+msgid "StepStone"
+msgstr "StepStone"
+
+msgid "XING"
+msgstr "XING"
+
+msgid "Employment Agency"
+msgstr "Агентство по труду"
+
+msgid "Jobcenter"
+msgstr "Биржа труда"
+
+msgid "Company Website"
+msgstr "Сайт компании"
+
+msgid "Recruiter"
+msgstr "Рекрутер"
+
+msgid "Referral"
+msgstr "По рекомендации"
+
+msgid "Other"
+msgstr "Другое"
+
+msgid "Resume Sent"
+msgstr "Отправлено резюме"
+
+msgid "Confirmation of Receipt Received"
+msgstr "Получено подтверждение о получении резюме"
+
+msgid "Interview Scheduled"
+msgstr "Назначено интервью"
+
+msgid "Interview Passed"
+msgstr "Подтверждение об прохождении интервью"
+
+msgid "Another Interview Scheduled"
+msgstr "Назначено еще интервью"
+
+msgid "Documents Requested"
+msgstr "Запрошены документы"
+
+msgid "Additional Documents Requested"
+msgstr "Запрос дополнительных документов"
+
+msgid "Rejection Received"
+msgstr "Получен отказ"
+
+msgid "First Name"
+msgstr "Имя"
+
+msgid "Last Name"
+msgstr "Фамилия"
+
+# Forms
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Password confirmation"
+msgstr "Подтверждение пароля"
+
+msgid "Tags"
+msgstr "Теги"
+
+#, fuzzy
+#| msgid "Description"
+msgid "Optional description"
+msgstr "Описание"
+
+msgid "Category Name"
+msgstr "Название категории"
+
+msgid "Color"
+msgstr "Цвет"
+
+msgid "Tag Name"
+msgstr "Название тега"
+
+msgid "Theme"
+msgstr "Тема"
+
+msgid "Email Notifications Enabled"
+msgstr "Уведомления по email включены"
+
+msgid "Reminder Days Before"
+msgstr "Дней до напоминания"
+
+msgid "Optional notes"
+msgstr "Необязательные заметки"
+
+msgid "Status Type"
+msgstr "Тип статуса"
+
+msgid "Date and Time"
+msgstr "Дата и время"
+
+msgid "Notes"
+msgstr "Заметки"
+
+#, fuzzy
+#| msgid "Job Search System"
+msgid "Job Search Reminders"
+msgstr "Система поиска работы"
+
+#, fuzzy
+#| msgid "Upcoming Interviews"
+msgid "Upcoming Interviews:"
+msgstr "Предстоящие интервью"
+
+#, fuzzy
+#| msgid "Follow-ups"
+msgid "Follow-ups:"
+msgstr "Напоминания"
+
+#, fuzzy
+#| msgid "Application Deadlines"
+msgid "Application Deadlines:"
+msgstr "Дедлайны подачи"
+
+msgid "Visit your calendar to see all events:"
+msgstr "Посетите календарь, чтобы увидеть все события:"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Categories"
+msgstr "Категории"
+
+msgid "Tag"
+msgstr "Тег"
+
+msgid "Template Name"
+msgstr "Название шаблона"
+
+msgid "Job Title"
+msgstr "Должность"
+
+msgid "Employer"
+msgstr "Работодатель"
+
+msgid "Description"
+msgstr "Описание"
+
+#, fuzzy
+#| msgid "Job Templates"
+msgid "Job Template"
+msgstr "Шаблоны вакансий"
+
+msgid "Job Templates"
+msgstr "Шаблоны вакансий"
+
+msgid "Address"
+msgstr "Адрес"
+
+msgid "Contact Email"
+msgstr "Email контакт"
+
+msgid "Phone"
+msgstr "Телефон"
+
+msgid "Job URL"
+msgstr "URL вакансии"
+
+msgid "Salary Min"
+msgstr "Минимальная зарплата"
+
+msgid "Salary Max"
+msgstr "Максимальная зарплата"
+
+msgid "Currency"
+msgstr "Валюта"
+
+msgid "Work Type"
+msgstr "Тип работы"
+
+msgid "Priority"
+msgstr "Приоритет"
+
+msgid "Source"
+msgstr "Источник"
+
+msgid "Interview Date"
+msgstr "Дата интервью"
+
+msgid "Follow-up Date"
+msgstr "Дата напоминания"
+
+msgid "Application Deadline"
+msgstr "Дедлайн подачи"
+
+msgid "Reminder Sent"
+msgstr "Напоминание отправлено"
+
+msgid "Resume Submitted"
+msgstr "Резюме подано"
+
+msgid "Resume Submitted Date"
+msgstr "Дата подачи резюме"
+
+msgid "Confirmation Date"
+msgstr "Дата подтверждения"
+
+msgid "Response Date"
+msgstr "Дата ответа"
+
+msgid "Rejection Date"
+msgstr "Дата отказа"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Job Entry"
+msgstr "Вакансия"
+
+msgid "Job Entries"
+msgstr "Вакансии"
+
+#, fuzzy
+#| msgid "Created"
+msgid "Created At"
+msgstr "Создано"
+
+msgid "Resume Submission Status"
+msgstr "Статус подачи резюме"
+
+msgid "Resume Submission Statuses"
+msgstr "Статусы подачи резюме"
+
+#, fuzzy
+#| msgid "Field"
+msgid "Field Name"
+msgstr "Поле"
+
+msgid "Old Value"
+msgstr "Старое значение"
+
+msgid "New Value"
+msgstr "Новое значение"
+
+msgid "Changed At"
+msgstr "Изменено"
+
+#, fuzzy
+#| msgid "Job Entries"
+msgid "Job Entry History"
+msgstr "Вакансии"
+
+#, fuzzy
+#| msgid "Job Entries"
+msgid "Job Entry Histories"
+msgstr "Вакансии"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "File Name"
+msgstr "Имя файла"
+
+msgid "File Type"
+msgstr "Тип файла"
+
+msgid "Uploaded At"
+msgstr "Загружено"
+
+#, fuzzy
+#| msgid "Attachments"
+msgid "Attachment"
+msgstr "Вложения"
+
+msgid "Attachments"
+msgstr "Вложения"
+
+#, fuzzy
+#| msgid "Job Title"
+msgid "Title"
+msgstr "Должность"
+
+msgid "Message"
+msgstr "Сообщение"
+
+#, fuzzy
+#| msgid "Work Type"
+msgid "Type"
+msgstr "Тип работы"
+
+#, fuzzy
+#| msgid "Read"
+msgid "Is Read"
+msgstr "Прочитано"
+
+#, fuzzy
+#| msgid "Notifications"
+msgid "Notification"
+msgstr "Уведомления"
+
+msgid "Notifications"
+msgstr "Уведомления"
+
+msgid "Light"
+msgstr "Светлая"
+
+msgid "Dark"
+msgstr "Темная"
+
+msgid "Auto"
+msgstr "Автоматически"
+
+msgid "User Profile"
+msgstr "Профиль пользователя"
+
+msgid "User Profiles"
+msgstr "Профили пользователей"
+
+msgid "Job Information"
+msgstr "Информация о вакансии"
+
+msgid "Not specified"
+msgstr "Не указано"
+
+msgid "Created"
+msgstr "Создано"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+# Forms
+#, fuzzy
+#| msgid "Username"
+msgid "User"
+msgstr "Имя пользователя"
+
+msgid "Report Date"
+msgstr "Дата отчета"
+
+msgid "General Statistics"
+msgstr "Общая статистика"
+
+msgid "Total Jobs"
+msgstr "Всего вакансий"
+
+msgid "Resumes Submitted"
+msgstr "Подано резюме"
+
+msgid "Responses Received"
+msgstr "Получено ответов"
+
+msgid "Rejections"
+msgstr "Отказов"
+
+msgid "Status Distribution"
+msgstr "Распределение по статусам"
+
+msgid "Count"
+msgstr "Количество"
+
+msgid "Success Rates"
+msgstr "Процент успешности"
+
+msgid "Indicator"
+msgstr "Показатель"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Success Rate"
+msgstr "Процент успешности"
+
+msgid "Rejection Rate"
+msgstr "Процент отказов"
+
+msgid "Time-based Statistics"
+msgstr "Статистика по времени"
+
+msgid "Period"
+msgstr "Период"
+
+msgid "Jobs Added"
+msgstr "Добавлено вакансий"
+
+msgid "Responses"
+msgstr "Ответов"
+
+msgid "Last Week"
+msgstr "За неделю"
+
+msgid "Last Month"
+msgstr "За месяц"
+
+msgid "Last Year"
+msgstr "За год"
+
+msgid "Top Employers"
+msgstr "Топ работодателей"
+
+msgid "#"
+msgstr "#"
+
+msgid "Number of Jobs"
+msgstr "Количество вакансий"
+
+msgid "Jobs Added by Month"
+msgstr "Добавлено вакансий по месяцам"
+
+msgid "Last 12 months"
+msgstr "Последние 12 месяцев"
+
+msgid "Generated"
+msgstr "Сгенерировано"
+
+msgid "January"
+msgstr "Январь"
+
+msgid "February"
+msgstr "Февраль"
+
+msgid "March"
+msgstr "Март"
+
+msgid "April"
+msgstr "Апрель"
+
+msgid "May"
+msgstr "Май"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "August"
+msgstr "Август"
+
+msgid "September"
+msgstr "Сентябрь"
+
+msgid "October"
+msgstr "Октябрь"
+
+msgid "November"
+msgstr "Ноябрь"
+
+msgid "December"
+msgstr "Декабрь"
+
+msgid "Monthly Report"
+msgstr "Месячный отчет"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Email"
+msgstr "Email"
+
+# Models
+msgid "Result"
+msgstr "Результат"
+
+msgid "Result Date"
+msgstr "Дата результата"
+
+msgid "No entries for this month"
+msgstr "Нет записей за этот месяц"
+
+msgid "Total entries"
+msgstr "Всего записей"
+
+# Views messages
+#, python-format
+msgid "Welcome, %(username)s!"
+msgstr "Добро пожаловать, %(username)s!"
+
+msgid "Job entry saved successfully!"
+msgstr "Вакансия успешно сохранена!"
+
+msgid "Job entry updated successfully!"
+msgstr "Вакансия успешно обновлена!"
+
+#, fuzzy
+#| msgid "Theme updated successfully!"
+msgid "Resume submission status added successfully!"
+msgstr "Тема успешно обновлена!"
+
+#, fuzzy
+#| msgid "Template deleted successfully!"
+msgid "Resume submission status deleted successfully!"
+msgstr "Шаблон успешно удален!"
+
+msgid "Job entry deleted!"
+msgstr "Вакансия удалена!"
+
+#, python-format
+msgid "Error generating PDF: %(error)s"
+msgstr "Ошибка при генерации PDF: %(error)s"
+
+msgid "Template saved successfully!"
+msgstr "Шаблон успешно сохранен!"
+
+msgid "Job entry created from template!"
+msgstr "Вакансия создана из шаблона!"
+
+msgid "Template updated successfully!"
+msgstr "Шаблон успешно обновлен!"
+
+msgid "Template deleted successfully!"
+msgstr "Шаблон успешно удален!"
+
+#, fuzzy
+#| msgid "Resume uploaded successfully!"
+msgid "File uploaded successfully!"
+msgstr "Резюме успешно загружено!"
+
+#, fuzzy
+#| msgid "Attachments"
+msgid "Attachment deleted!"
+msgstr "Вложения"
+
+msgid "All notifications marked as read!"
+msgstr "Все уведомления отмечены как прочитанные!"
+
+msgid "Theme updated successfully!"
+msgstr "Тема успешно обновлена!"
+
+msgid "Profile updated successfully!"
+msgstr "Профиль успешно обновлен!"
+
+msgid "Notification deleted successfully!"
+msgstr "Уведомление успешно удалено!"
+
+#, python-format
+msgid "%(count)s notification(s) deleted successfully!"
+msgstr "%(count)s уведомление(й) успешно удалено!"
+
+msgid "Category created successfully!"
+msgstr "Категория успешно создана!"
+
+msgid "Create Category"
+msgstr "Создать категорию"
+
+msgid "Category updated successfully!"
+msgstr "Категория успешно обновлена!"
+
+msgid "Edit Category"
+msgstr "Редактировать категорию"
+
+#, python-format
+msgid "Category \"%(name)s\" deleted successfully!"
+msgstr "Категория \"%(name)s\" успешно удалена!"
+
+msgid "Tag created successfully!"
+msgstr "Тег успешно создан!"
+
+msgid "Create Tag"
+msgstr "Создать тег"
+
+msgid "Tag updated successfully!"
+msgstr "Тег успешно обновлен!"
+
+msgid "Edit Tag"
+msgstr "Редактировать тег"
+
+#, python-format
+msgid "Tag \"%(name)s\" deleted successfully!"
+msgstr "Тег \"%(name)s\" успешно удален!"
+
+# Templates
+msgid "Job Search"
+msgstr "Поиск работы"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "Jobs"
+msgstr "Вакансии"
+
+msgid "Manage"
+msgstr "Управление"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Templates"
+msgstr "Шаблоны"
+
+msgid "Hello"
+msgstr "Привет"
+
+msgid "Logout"
+msgstr "Выход"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Register"
+msgstr "Регистрация"
+
+msgid "Toggle Theme"
+msgstr "Переключить тему"
+
+msgid "Close"
+msgstr ""
+
+msgid "Calendar"
+msgstr "Календарь"
+
+msgid "Month"
+msgstr "Месяц"
+
+#, fuzzy
+#| msgid "Last Week"
+msgid "Week"
+msgstr "За неделю"
+
+msgid "Day"
+msgstr "День"
+
+msgid "Upcoming Interviews"
+msgstr "Предстоящие интервью"
+
+msgid "No upcoming interviews"
+msgstr "Нет предстоящих интервью"
+
+msgid "Follow-ups"
+msgstr "Напоминания"
+
+msgid "No follow-ups scheduled"
+msgstr "Нет запланированных напоминаний"
+
+msgid "Application Deadlines"
+msgstr "Дедлайны подачи"
+
+msgid "No deadlines"
+msgstr "Нет дедлайнов"
+
+#, fuzzy
+#| msgid "Interview Date"
+msgid "Interview"
+msgstr "Дата интервью"
+
+#, fuzzy
+#| msgid "Follow-ups"
+msgid "Follow-up"
+msgstr "Напоминания"
+
+#, fuzzy
+#| msgid "No deadlines"
+msgid "Deadline"
+msgstr "Нет дедлайнов"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Delete"
+msgstr "Удалить"
+
+msgid ""
+"No categories yet. Create your first category to organize your job entries!"
+msgstr ""
+"Категорий пока нет. Создайте первую категорию для организации ваших вакансий!"
+
+msgid "Click the color picker to choose a color"
+msgstr "Нажмите на выбор цвета, чтобы выбрать цвет"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Create Job"
+msgstr "Создать вакансию"
+
+msgid "Create New Job Entry"
+msgstr "Создать новую вакансию"
+
+msgid "Use Template"
+msgstr "Использовать шаблон"
+
+msgid "Creating job from template"
+msgstr "Создание вакансии из шаблона"
+
+msgid "Additional Information"
+msgstr "Дополнительная информация"
+
+msgid "Important Dates"
+msgstr "Важные даты"
+
+msgid "Dashboard"
+msgstr "Главная"
+
+msgid "Welcome back"
+msgstr "Добро пожаловать"
+
+msgid "Quick Actions"
+msgstr "Быстрые действия"
+
+msgid "All Jobs"
+msgstr "Все вакансии"
+
+msgid "Latest Jobs"
+msgstr "Последние вакансии"
+
+msgid "View All Jobs"
+msgstr "Все вакансии"
+
+msgid "No saved jobs yet."
+msgstr "Нет сохраненных вакансий"
+
+msgid "Start by adding your first job entry"
+msgstr "Начните с добавления первой вакансии"
+
+msgid "Add Job"
+msgstr "Добавить вакансию"
+
+#, fuzzy
+#| msgid "Category"
+msgid "Delete Category"
+msgstr "Удалить категорию"
+
+#, python-format
+msgid ""
+"\n"
+"                <p>Are you sure you want to delete the category "
+"<strong>\"%(category_name)s\"</strong>?</p>\n"
+"                "
+msgstr ""
+"\n"
+"                <p>Вы уверены, что хотите удалить категорию "
+"<strong>\"%(category_name)s\"</strong>?</p>\n"
+"                "
+
+msgid ""
+"This action cannot be undone. Job entries using this category will have "
+"their category set to empty."
+msgstr ""
+"Это действие нельзя отменить. Вакансии, использующие эту категорию, будут "
+"иметь пустую категорию."
+
+msgid "Delete Job"
+msgstr "Удаление вакансии"
+
+msgid "Are you sure you want to delete the job:"
+msgstr "Вы уверены, что хотите удалить вакансию:"
+
+msgid "This action cannot be undone!"
+msgstr "Это действие нельзя отменить!"
+
+msgid "Yes, Delete"
+msgstr "Да, удалить"
+
+msgid "Delete Tag"
+msgstr "Удалить тег"
+
+#, python-format
+msgid ""
+"\n"
+"                <p>Are you sure you want to delete the tag "
+"<strong>\"%(tag_name)s\"</strong>?</p>\n"
+"                "
+msgstr ""
+"\n"
+"                <p>Вы уверены, что хотите удалить тег "
+"<strong>\"%(tag_name)s\"</strong>?</p>\n"
+"                "
+
+msgid ""
+"This action cannot be undone. Job entries using this tag will have this tag "
+"removed."
+msgstr ""
+"Это действие нельзя отменить. Вакансии, использующие этот тег, будут иметь "
+"этот тег удаленным."
+
+msgid "Edit Job"
+msgstr "Редактировать вакансию"
+
+msgid "Add Status"
+msgstr "Добавить статус"
+
+msgid "Are you sure you want to delete this status?"
+msgstr "Вы уверены, что хотите удалить этот статус?"
+
+msgid "No resume submission statuses yet. Click 'Add Status' to add one."
+msgstr "Пока нет статусов подачи резюме. Нажмите 'Добавить статус', чтобы добавить."
+
+msgid "Add Resume Submission Status"
+msgstr "Добавить статус подачи резюме"
+
+msgid "Remove Status"
+msgstr "Удалить статус"
+
+msgid "Status will be saved when you click 'Save Changes' button below."
+msgstr "Статус будет сохранен при нажатии кнопки 'Сохранить изменения' ниже."
+
+msgid "Save Changes"
+msgstr "Сохранить изменения"
+
+msgid "Edit Profile"
+msgstr "Редактировать профиль"
+
+msgid "Number of days before deadline to send reminder"
+msgstr "Количество дней до дедлайна для отправки напоминания"
+
+msgid "Edit Template"
+msgstr "Редактировать шаблон"
+
+msgid "Download PDF"
+msgstr "Скачать PDF"
+
+msgid "View Job Posting"
+msgstr "Открыть вакансию"
+
+msgid "Salary"
+msgstr "Зарплата"
+
+msgid "From"
+msgstr "От"
+
+msgid "Up to"
+msgstr "До"
+
+msgid "Download"
+msgstr "Скачать"
+
+msgid "Are you sure you want to delete this attachment?"
+msgstr "Вы уверены, что хотите удалить это вложение?"
+
+msgid "No attachments yet"
+msgstr "Вложений пока нет"
+
+msgid "Upload File"
+msgstr "Загрузить файл"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "Change History"
+msgstr "История изменений"
+
+msgid "Show All"
+msgstr "Показать все"
+
+msgid "Show Less"
+msgstr "Показать меньше"
+
+msgid "Field"
+msgstr "Поле"
+
+msgid "Empty"
+msgstr "Пусто"
+
+msgid "Back to List"
+msgstr "Назад к списку"
+
+#, fuzzy
+#| msgid "Job Title"
+msgid "Job List"
+msgstr "Должность"
+
+msgid "My Jobs"
+msgstr "Мои вакансии"
+
+msgid "Search by job title, employer or description..."
+msgstr "Поиск по должности, работодателю или описанию..."
+
+msgid "All Statuses"
+msgstr "Все статусы"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "View"
+msgstr "Подробнее"
+
+#, fuzzy
+#| msgid "No results found for"
+msgid "No results found"
+msgstr "По запросу"
+
+msgid "You don't have any saved jobs yet."
+msgstr "У вас пока нет сохраненных вакансий."
+
+msgid "Try adjusting your search criteria"
+msgstr ""
+
+msgid "Start tracking your job applications"
+msgstr ""
+
+msgid "Invalid username or password."
+msgstr "Неверное имя пользователя или пароль."
+
+msgid "Don't have an account?"
+msgstr "Нет аккаунта?"
+
+msgid "unread"
+msgstr "непрочитанных"
+
+msgid "Mark all as read"
+msgstr "Отметить все как прочитанные"
+
+msgid "Delete All"
+msgstr "Удалить все"
+
+msgid "All Notifications"
+msgstr "Все уведомления"
+
+msgid "New"
+msgstr "Новое"
+
+msgid "View Job"
+msgstr "Просмотреть вакансию"
+
+msgid "Read"
+msgstr "Прочитано"
+
+msgid "Mark as read"
+msgstr "Отметить как прочитанное"
+
+msgid "Are you sure you want to delete this notification?"
+msgstr "Вы уверены, что хотите удалить это уведомление?"
+
+msgid "No notifications yet"
+msgstr "Уведомлений пока нет"
+
+#, fuzzy
+#| msgid "All Notifications"
+msgid "Delete Notification"
+msgstr "Все уведомления"
+
+msgid "Delete All Notifications"
+msgstr "Удалить все уведомления"
+
+msgid "Are you sure you want to delete all notifications?"
+msgstr "Вы уверены, что хотите удалить все уведомления?"
+
+msgid ""
+"This will permanently delete all your notifications and cannot be undone!"
+msgstr ""
+"Это навсегда удалит все ваши уведомления, и это действие нельзя отменить!"
+
+msgid "Yes, Delete All"
+msgstr "Да, удалить все"
+
+msgid "Registration"
+msgstr "Регистрация"
+
+msgid "Already have an account?"
+msgstr "Уже есть аккаунт?"
+
+msgid "Generate Report"
+msgstr "Создать отчет"
+
+msgid "Statistics Report"
+msgstr "Отчет по статистике"
+
+msgid "Back to Job List"
+msgstr "Назад к списку вакансий"
+
+msgid "Year"
+msgstr "Год"
+
+msgid "Generate PDF"
+msgstr "Создать PDF"
+
+msgid "Accepted / Submitted"
+msgstr "Принято / Подано"
+
+msgid "Rejected / Submitted"
+msgstr "Отказов / Подано"
+
+msgid "Jobs added"
+msgstr "Добавлено вакансий"
+
+msgid "Resumes submitted"
+msgstr "Подано резюме"
+
+msgid "Responses received"
+msgstr "Получено ответов"
+
+msgid "Jobs by Priority"
+msgstr "Вакансии по приоритету"
+
+msgid "Monthly Activity"
+msgstr "Активность по месяцам"
+
+msgid "Jobs by Source"
+msgstr "Вакансии по источникам"
+
+msgid "No data available"
+msgstr "Данные отсутствуют"
+
+msgid "No tags yet. Create your first tag to label your job entries!"
+msgstr "Тегов пока нет. Создайте первый тег для маркировки ваших вакансий!"
+
+msgid "Create Template"
+msgstr "Создать шаблон"
+
+msgid "Save Template"
+msgstr "Сохранить шаблон"
+
+msgid "Create Job from Template"
+msgstr "Создать вакансию из шаблона"
+
+msgid "Delete Template"
+msgstr "Удалить шаблон"
+
+msgid "Are you sure you want to delete this template?"
+msgstr "Вы уверены, что хотите удалить этот шаблон?"
+
+msgid ""
+"No templates yet. Create your first template to speed up job entry creation!"
+msgstr ""
+"Шаблонов пока нет. Создайте первый шаблон, чтобы ускорить создание вакансий!"
+
+msgid "Upload Attachment"
+msgstr "Загрузить вложение"
+
+msgid "Job"
+msgstr "Вакансия"
+
+msgid "Supported formats: PDF, DOC, DOCX, images, etc."
+msgstr "Поддерживаемые форматы: PDF, DOC, DOCX, изображения и т.д."
+
+msgid "Upload"
+msgstr "Загрузить"
+
+#~ msgid "Monthly Report PDF"
+#~ msgstr "Месячный отчет PDF"
+
+#~ msgid "Download PDF Report"
+#~ msgstr "Скачать PDF отчет"
+
+#~ msgid "Resumes"
+#~ msgstr "Резюме"
+
+#~ msgid "File size must not exceed 10 MB"
+#~ msgstr "Размер файла не должен превышать 10 МБ"
+
+#~ msgid "Only PDF and DOCX files are supported"
+#~ msgstr "Поддерживаются только файлы PDF и DOCX"
+
+#~ msgid "Data extracted successfully! Please review and edit the information."
+#~ msgstr "Данные успешно извлечены! Проверьте и отредактируйте информацию."
+
+#~ msgid ""
+#~ "Failed to extract data from the page. Please enter the information "
+#~ "manually."
+#~ msgstr ""
+#~ "Не удалось извлечь данные со страницы. Попробуйте ввести информацию "
+#~ "вручную."
+
+#~ msgid "Parse"
+#~ msgstr "Парсинг"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "No"
+#~ msgstr "Нет"
+
+# Notification translations
+#, python-format
+msgid "Upcoming interview: %(job_title)s"
+msgstr "Предстоящее интервью: %(job_title)s"
+
+#, python-format
+msgid "Interview scheduled for %(date)s"
+msgstr "Интервью запланировано на %(date)s"
+
+#, python-format
+msgid "Follow-up reminder: %(job_title)s"
+msgstr "Напоминание о повторном контакте: %(job_title)s"
+
+#, python-format
+msgid "Follow-up scheduled for %(date)s"
+msgstr "Повторный контакт запланирован на %(date)s"
+
+#, python-format
+msgid "Application deadline: %(job_title)s"
+msgstr "Дедлайн подачи: %(job_title)s"
+
+#, python-format
+msgid "Application deadline: %(date)s"
+msgstr "Дедлайн подачи: %(date)s"
+
+msgid "Date Validation Error"
+msgstr "Ошибка валидации даты"
+
+msgid "Date cannot be earlier than the job entry creation date"
+msgstr "Дата не может быть раньше даты создания вакансии"

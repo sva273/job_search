@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Upload Attachment" %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="mb-0">
+                    <i class="bi bi-cloud-upload-fill"></i> {% trans "Upload Attachment" %}
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <p class="text-muted">
+                        <i class="bi bi-briefcase"></i> <strong>{% trans "Job" %}:</strong> {{ job_entry.job_title }} - {{ job_entry.employer }}
+                    </p>
+                </div>
+
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.file.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-file-earmark"></i> {{ form.file.label }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form.file }}
+                        {% if form.file.errors %}
+                            <div class="text-danger small mt-1">{{ form.file.errors }}</div>
+                        {% endif %}
+                        <small class="form-text text-muted">
+                            {% trans "Supported formats: PDF, DOC, DOCX, images, etc." %}
+                        </small>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.description.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-card-text"></i> {{ form.description.label }}
+                        </label>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                            <div class="text-danger small mt-1">{{ form.description.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-upload"></i> {% trans "Upload" %}
+                        </button>
+                        <a href="{% url 'jobs:job_detail' job_entry.id %}" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> {% trans "Cancel" %}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

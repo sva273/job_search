@@ -1,0 +1,623 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit Job" %}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-8">
+        <div class="card">
+            <div class="card-header card-header-warning">
+                <h4 class="mb-0"><i class="bi bi-pencil-fill"></i> {% trans "Edit Job" %}</h4>
+            </div>
+            <div class="card-body">
+                <form method="post" id="editJobForm" action="{% url 'jobs:edit_job' job_entry.id %}">
+                    {% csrf_token %}
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.job_title.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-briefcase"></i> {{ form.job_title.label }} <span class="text-danger">*</span>
+                            </label>
+                            {{ form.job_title }}
+                            {% if form.job_title.errors %}
+                                <div class="text-danger small mt-1">{{ form.job_title.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.employer.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-building"></i> {{ form.employer.label }} <span class="text-danger">*</span>
+                            </label>
+                            {{ form.employer }}
+                            {% if form.employer.errors %}
+                                <div class="text-danger small mt-1">{{ form.employer.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.address.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-geo-alt"></i> {{ form.address.label }}
+                        </label>
+                        {{ form.address }}
+                        {% if form.address.errors %}
+                            <div class="text-danger small mt-1">{{ form.address.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.contact_email.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-envelope"></i> {{ form.contact_email.label }}
+                            </label>
+                            {{ form.contact_email }}
+                            {% if form.contact_email.errors %}
+                                <div class="text-danger small mt-1">{{ form.contact_email.errors }}</div>
+                            {% endif %}
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="{{ form.contact_phone.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-telephone"></i> {{ form.contact_phone.label }}
+                            </label>
+                            {{ form.contact_phone }}
+                            {% if form.contact_phone.errors %}
+                                <div class="text-danger small mt-1">{{ form.contact_phone.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.company_website.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-globe"></i> {{ form.company_website.label }}
+                        </label>
+                        {{ form.company_website }}
+                        {% if form.company_website.errors %}
+                            <div class="text-danger small mt-1">{{ form.company_website.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="{{ form.job_url.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-link-45deg"></i> {{ form.job_url.label }} <span class="text-danger">*</span>
+                        </label>
+                        {{ form.job_url }}
+                        {% if form.job_url.errors %}
+                            <div class="text-danger small mt-1">{{ form.job_url.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="{{ form.description.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-file-text"></i> {{ form.description.label }}
+                        </label>
+                        {{ form.description }}
+                        {% if form.description.errors %}
+                            <div class="text-danger small mt-1">{{ form.description.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <hr class="my-4">
+                    <h5 class="mb-3">
+                        <i class="bi bi-info-circle-fill"></i> {% trans "Additional Information" %}
+                    </h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="{{ form.salary_min.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-currency-dollar"></i> {{ form.salary_min.label }}
+                            </label>
+                            {{ form.salary_min }}
+                            {% if form.salary_min.errors %}
+                                <div class="text-danger small mt-1">{{ form.salary_min.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.salary_max.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-currency-dollar"></i> {{ form.salary_max.label }}
+                            </label>
+                            {{ form.salary_max }}
+                            {% if form.salary_max.errors %}
+                                <div class="text-danger small mt-1">{{ form.salary_max.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.salary_currency.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-currency-exchange"></i> {{ form.salary_currency.label }}
+                            </label>
+                            {{ form.salary_currency }}
+                            {% if form.salary_currency.errors %}
+                                <div class="text-danger small mt-1">{{ form.salary_currency.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="{{ form.category.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-tag-fill"></i> {{ form.category.label }}
+                            </label>
+                            {{ form.category }}
+                            {% if form.category.errors %}
+                                <div class="text-danger small mt-1">{{ form.category.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold">
+                                <i class="bi bi-tags-fill"></i> {{ form.tags.label }}
+                            </label>
+                            <div class="form-check-group">
+                                {% for checkbox in form.tags %}
+                                    <div class="form-check">
+                                        {{ checkbox.tag }}
+                                        <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                            {{ checkbox.choice_label }}
+                                        </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if form.tags.errors %}
+                                <div class="text-danger small mt-1">{{ form.tags.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="{{ form.work_type.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-briefcase"></i> {{ form.work_type.label }}
+                            </label>
+                            {{ form.work_type }}
+                            {% if form.work_type.errors %}
+                                <div class="text-danger small mt-1">{{ form.work_type.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.priority.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-star"></i> {{ form.priority.label }}
+                            </label>
+                            {{ form.priority }}
+                            {% if form.priority.errors %}
+                                <div class="text-danger small mt-1">{{ form.priority.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.source.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-link-45deg"></i> {{ form.source.label }}
+                            </label>
+                            {{ form.source }}
+                            {% if form.source.errors %}
+                                <div class="text-danger small mt-1">{{ form.source.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <h5 class="mb-3">
+                        <i class="bi bi-calendar-event"></i> {% trans "Important Dates" %}
+                    </h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="{{ form.interview_date.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-calendar-check"></i> {{ form.interview_date.label }}
+                            </label>
+                            {{ form.interview_date }}
+                            {% if form.interview_date.errors %}
+                                <div class="text-danger small mt-1">{{ form.interview_date.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.follow_up_date.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-calendar-plus"></i> {{ form.follow_up_date.label }}
+                            </label>
+                            {{ form.follow_up_date }}
+                            {% if form.follow_up_date.errors %}
+                                <div class="text-danger small mt-1">{{ form.follow_up_date.errors }}</div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.application_deadline.id_for_label }}" class="form-label fw-bold">
+                                <i class="bi bi-calendar-x"></i> {{ form.application_deadline.label }}
+                            </label>
+                            {{ form.application_deadline }}
+                            {% if form.application_deadline.errors %}
+                                <div class="text-danger small mt-1">{{ form.application_deadline.errors }}</div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="mb-0">
+                            <i class="bi bi-briefcase-fill"></i> {% trans "Resume Submission Status" %}
+                        </h5>
+                        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addResumeStatusModal">
+                            <i class="bi bi-plus-circle"></i> {% trans "Add Status" %}
+                        </button>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h6 class="mb-0"><i class="bi bi-list-check"></i> {% trans "Resume Submission Statuses" %} <span class="badge bg-primary" id="statusCount">{{ resume_statuses|length }}</span></h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="list-group list-group-flush" id="resumeStatusList">
+                                {% for status in resume_statuses %}
+                                    <div class="list-group-item status-item" data-status-id="{{ status.id }}">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="flex-grow-1">
+                                                <h6 class="mb-1">
+                                                    <i class="bi bi-{% if status.status_type == 'resume_sent' %}send-fill{% elif status.status_type == 'confirmation_received' %}check-circle-fill{% elif status.status_type == 'interview_scheduled' %}calendar-event{% elif status.status_type == 'interview_passed' %}check2-circle{% elif status.status_type == 'another_interview_scheduled' %}calendar-check{% elif status.status_type == 'documents_requested' %}file-earmark-text{% elif status.status_type == 'rejection_received' %}x-circle-fill{% endif %} text-primary me-2"></i>
+                                                    {{ status.get_status_type_display }}
+                                                </h6>
+                                                <p class="mb-1 text-muted">
+                                                    <i class="bi bi-clock"></i> {{ status.date_time|date:"d.m.Y H:i" }}
+                                                </p>
+                                                {% if status.notes %}
+                                                    <p class="mb-0 small">{{ status.notes }}</p>
+                                                {% endif %}
+                                            </div>
+                                            <button type="button" class="btn btn-sm btn-outline-danger remove-status-btn" data-status-id="{{ status.id }}" title="{% trans 'Remove Status' %}">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </div>
+                                        <input type="hidden" name="existing_status_ids" value="{{ status.id }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% if not resume_statuses %}
+                                <div class="alert alert-info m-3" id="noStatusesAlert">
+                                    <i class="bi bi-info-circle"></i> {% trans "No resume submission statuses yet. Click 'Add Status' to add one." %}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    <!-- Hidden container for new statuses data -->
+                    <div id="newStatusesContainer"></div>
+
+                    <div class="mb-4">
+                        <label for="{{ form.notes.id_for_label }}" class="form-label fw-bold">
+                            <i class="bi bi-sticky"></i> {{ form.notes.label }}
+                        </label>
+                        {{ form.notes }}
+                        {% if form.notes.errors %}
+                            <div class="text-danger small mt-1">{{ form.notes.errors }}</div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Hidden status field to ensure it's always submitted -->
+                    {{ form.status.as_hidden }}
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle-fill"></i> {% trans "Save Changes" %}
+                        </button>
+                        <a href="{% url 'jobs:job_detail' job_entry.id %}" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> {% trans "Cancel" %}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Resume Status Modal - Outside main form -->
+<div class="modal fade" id="addResumeStatusModal" tabindex="-1" aria-labelledby="addResumeStatusModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addResumeStatusModalLabel">
+                    <i class="bi bi-plus-circle"></i> {% trans "Add Resume Submission Status" %}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="id_status_type" class="form-label fw-bold">{% trans "Status Type" %} <span class="text-danger">*</span></label>
+                        <select name="status_type" id="id_status_type" class="form-control" required>
+                            <option value="">---------</option>
+                            <option value="resume_sent">{% trans "Resume Sent" %}</option>
+                            <option value="confirmation_received">{% trans "Confirmation of Receipt Received" %}</option>
+                            <option value="interview_scheduled">{% trans "Interview Scheduled" %}</option>
+                            <option value="interview_passed">{% trans "Interview Passed" %}</option>
+                            <option value="another_interview_scheduled">{% trans "Another Interview Scheduled" %}</option>
+                            <option value="documents_requested">{% trans "Additional Documents Requested" %}</option>
+                            <option value="rejection_received">{% trans "Rejection Received" %}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_date_time" class="form-label fw-bold">{% trans "Date and Time" %} <span class="text-danger">*</span></label>
+                        <input type="datetime-local" name="date_time" id="id_date_time" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="id_notes" class="form-label fw-bold">{% trans "Notes" %}</label>
+                        <textarea name="notes" id="id_notes" class="form-control" rows="3" placeholder="{% trans 'Optional notes' %}"></textarea>
+                    </div>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle"></i> {% trans "Status will be saved when you click 'Save Changes' button below." %}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
+                    <button type="button" class="btn btn-primary" id="addStatusToFormBtn">{% trans "Add Status" %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let statusCounter = 0;
+    const statusIcons = {
+        'resume_sent': 'send-fill',
+        'confirmation_received': 'check-circle-fill',
+        'interview_scheduled': 'calendar-event',
+        'interview_passed': 'check2-circle',
+        'another_interview_scheduled': 'calendar-check',
+        'documents_requested': 'file-earmark-text',
+        'rejection_received': 'x-circle-fill'
+    };
+    
+    const statusLabels = {
+        'resume_sent': '{% trans "Resume Sent" %}',
+        'confirmation_received': '{% trans "Confirmation of Receipt Received" %}',
+        'interview_scheduled': '{% trans "Interview Scheduled" %}',
+        'interview_passed': '{% trans "Interview Passed" %}',
+        'another_interview_scheduled': '{% trans "Another Interview Scheduled" %}',
+        'documents_requested': '{% trans "Additional Documents Requested" %}',
+        'rejection_received': '{% trans "Rejection Received" %}'
+    };
+    
+    // Get job entry creation date (convert to ISO format for JavaScript)
+    const jobCreatedAtStr = '{{ job_entry.created_at|date:"c" }}';
+    const jobCreatedAt = new Date(jobCreatedAtStr);
+    
+    // Translated strings
+    const translations = {
+        dateError: '{% trans "Date cannot be earlier than the job entry creation date" %}',
+        dateValidationError: '{% trans "Date Validation Error" %}',
+        ok: '{% trans "OK" %}',
+        fillRequiredFields: '{% trans "Please fill in all required fields" %}'
+    };
+    
+    // Validate date against creation date
+    function validateStatusDate(dateTimeStr, statusType) {
+        if (!dateTimeStr) return { valid: true };
+        
+        const statusDate = new Date(dateTimeStr);
+        if (statusDate < jobCreatedAt) {
+            const formattedDate = jobCreatedAt.toLocaleString('ru-RU', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            return {
+                valid: false,
+                message: translations.dateError + ': ' + formattedDate
+            };
+        }
+        return { valid: true };
+    }
+    
+    // Handle add status button
+    document.getElementById('addStatusToFormBtn').addEventListener('click', function() {
+        const statusType = document.getElementById('id_status_type').value;
+        const dateTime = document.getElementById('id_date_time').value;
+        const notes = document.getElementById('id_notes').value;
+        
+        if (!statusType || !dateTime) {
+            alert(translations.fillRequiredFields);
+            return;
+        }
+        
+        // Validate date
+        const validation = validateStatusDate(dateTime, statusType);
+        if (!validation.valid) {
+            // Show error modal
+            showDateErrorModal(validation.message);
+            return;
+        }
+        
+        // Hide "no statuses" alert if exists
+        const noStatusesAlert = document.getElementById('noStatusesAlert');
+        if (noStatusesAlert) {
+            noStatusesAlert.style.display = 'none';
+        }
+        
+        // Create status item
+        const statusList = document.getElementById('resumeStatusList');
+        const statusItem = document.createElement('div');
+        statusItem.className = 'list-group-item status-item';
+        statusItem.setAttribute('data-temp-id', 'temp_' + statusCounter++);
+        
+        const dateObj = new Date(dateTime);
+        const formattedDate = dateObj.toLocaleDateString('ru-RU', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+        
+        statusItem.innerHTML = `
+            <div class="d-flex justify-content-between align-items-start">
+                <div class="flex-grow-1">
+                    <h6 class="mb-1">
+                        <i class="bi bi-${statusIcons[statusType]} text-primary me-2"></i>
+                        ${statusLabels[statusType]}
+                    </h6>
+                    <p class="mb-1 text-muted">
+                        <i class="bi bi-clock"></i> ${formattedDate}
+                    </p>
+                    ${notes ? `<p class="mb-0 small">${notes}</p>` : ''}
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-danger remove-status-btn" title="{% trans 'Remove Status' %}">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+            <input type="hidden" name="new_status_type" value="${statusType}">
+            <input type="hidden" name="new_status_date_time" value="${dateTime}">
+            <input type="hidden" name="new_status_notes" value="${notes}">
+        `;
+        
+        statusList.appendChild(statusItem);
+        
+        // Update count
+        const count = statusList.querySelectorAll('.status-item').length;
+        document.getElementById('statusCount').textContent = count;
+        
+        // Close modal and reset form
+        const modal = bootstrap.Modal.getInstance(document.getElementById('addResumeStatusModal'));
+        if (modal) {
+            modal.hide();
+        }
+        document.getElementById('id_status_type').value = '';
+        document.getElementById('id_date_time').value = '';
+        document.getElementById('id_notes').value = '';
+    });
+    
+    // Handle remove status buttons
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.remove-status-btn')) {
+            const btn = e.target.closest('.remove-status-btn');
+            const statusItem = btn.closest('.status-item');
+            statusItem.remove();
+            
+            // Update count
+            const statusList = document.getElementById('resumeStatusList');
+            const count = statusList.querySelectorAll('.status-item').length;
+            document.getElementById('statusCount').textContent = count;
+            
+            // Show "no statuses" alert if empty
+            if (count === 0) {
+                const noStatusesAlert = document.getElementById('noStatusesAlert');
+                if (noStatusesAlert) {
+                    noStatusesAlert.style.display = 'block';
+                }
+            }
+        }
+    });
+    
+    // Handle delete existing status buttons (for already saved statuses)
+    document.querySelectorAll('.delete-status-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            if (confirm('{% trans "Are you sure you want to delete this status?" %}')) {
+                const statusId = this.getAttribute('data-status-id');
+                const jobId = this.getAttribute('data-job-id');
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = `/jobs/${jobId}/resume-status/${statusId}/delete/`;
+                
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                const csrfInput = document.createElement('input');
+                csrfInput.type = 'hidden';
+                csrfInput.name = 'csrfmiddlewaretoken';
+                csrfInput.value = csrfToken;
+                form.appendChild(csrfInput);
+                
+                document.body.appendChild(form);
+                form.submit();
+            }
+        });
+    });
+    
+    // Form submission validation
+    document.getElementById('editJobForm').addEventListener('submit', function(e) {
+        // Check all new status dates
+        const newStatusDateTimes = document.querySelectorAll('input[name="new_status_date_time"]');
+        let hasError = false;
+        let errorMessages = [];
+        
+        newStatusDateTimes.forEach(input => {
+            const dateTime = input.value;
+            if (dateTime) {
+                const validation = validateStatusDate(dateTime);
+                if (!validation.valid) {
+                    hasError = true;
+                    if (!errorMessages.includes(validation.message)) {
+                        errorMessages.push(validation.message);
+                    }
+                }
+            }
+        });
+        
+        // Check all date fields in the form
+        const dateFields = [
+            { selector: '#id_resume_submitted_date', label: '{% trans "Resume Submitted Date" %}' },
+            { selector: '#id_confirmation_date', label: '{% trans "Confirmation Date" %}' },
+            { selector: '#id_response_date', label: '{% trans "Response Date" %}' },
+            { selector: '#id_rejection_date', label: '{% trans "Rejection Date" %}' },
+            { selector: '#id_interview_date', label: '{% trans "Interview Date" %}' }
+        ];
+        
+        dateFields.forEach(field => {
+            const input = document.querySelector(field.selector);
+            if (input && input.value) {
+                const validation = validateStatusDate(input.value);
+                if (!validation.valid) {
+                    hasError = true;
+                    const errorMsg = field.label + ': ' + validation.message;
+                    if (!errorMessages.includes(errorMsg)) {
+                        errorMessages.push(errorMsg);
+                    }
+                }
+            }
+        });
+        
+        if (hasError) {
+            e.preventDefault();
+            showDateErrorModal(errorMessages.join('\n'));
+            return false;
+        }
+    });
+    
+    // Function to show error modal
+    function showDateErrorModal(message) {
+        // Create or get error modal
+        let errorModal = document.getElementById('dateErrorModal');
+        if (!errorModal) {
+            errorModal = document.createElement('div');
+            errorModal.id = 'dateErrorModal';
+            errorModal.className = 'modal fade';
+            errorModal.setAttribute('tabindex', '-1');
+            errorModal.setAttribute('aria-labelledby', 'dateErrorModalLabel');
+            errorModal.setAttribute('aria-hidden', 'true');
+            errorModal.innerHTML = `
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="dateErrorModalLabel">
+                                <i class="bi bi-exclamation-triangle-fill"></i> ${translations.dateValidationError}
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="mb-0" id="dateErrorModalMessage"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">${translations.ok}</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(errorModal);
+        }
+        
+        // Set message
+        document.getElementById('dateErrorModalMessage').textContent = message;
+        
+        // Show modal
+        const modal = new bootstrap.Modal(errorModal);
+        modal.show();
+    }
+});
+</script>
+{% endblock %}

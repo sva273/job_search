@@ -1,0 +1,2380 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary-hover: linear-gradient(135deg, #5568d3 0%, #653a8f 100%);
+    --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --info-gradient: linear-gradient(135deg, #3494E6 0%, #EC6EAD 100%);
+    --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.18);
+    --shadow-xl: 0 20px 48px rgba(0,0,0,0.25);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Light theme colors */
+    --bg-primary: #f5f7fa;
+    --bg-secondary: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #6c757d;
+    --border-color: #e0e0e0;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Dark theme variables */
+[data-theme="dark"], .dark-theme {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #2d2d44;
+    --bg-tertiary: #3d3d5c;
+    --text-primary: #ffffff;
+    --text-secondary: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --border-color: #4d4d6c;
+}
+
+* {
+    transition: var(--transition);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.navbar {
+    background: var(--primary-gradient);
+    box-shadow: var(--shadow-lg);
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1030;
+}
+
+/* Dark theme navbar - ensure dark background */
+.dark-theme .navbar,
+[data-theme="dark"] .navbar {
+    background: var(--primary-gradient) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar-nav .nav-item {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #ffffff !important;
+}
+
+.navbar-brand,
+.navbar-brand * {
+    color: #ffffff !important;
+}
+
+.navbar-brand:hover,
+.navbar-brand:hover * {
+    color: #ffffff !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 8px;
+    margin: 0 0.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    line-height: 1.2;
+    position: relative;
+}
+
+.nav-link i {
+    font-size: 1.4rem;
+    margin: 0;
+    display: block;
+    line-height: 1;
+}
+
+.nav-link span {
+    font-size: 0.85rem;
+    line-height: 1;
+    display: block;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-item.dropdown {
+    position: relative;
+    z-index: 1031;
+}
+
+.nav-item.dropdown .dropdown-toggle {
+    padding-bottom: 1.2rem !important;
+}
+
+.nav-item.dropdown .dropdown-menu {
+    z-index: 9999 !important;
+}
+
+.nav-item.dropdown .dropdown-toggle::after {
+    display: none;
+}
+
+.nav-item.dropdown .dropdown-toggle::before {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    opacity: 0.7;
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: var(--transition);
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px) scale(1.01);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.card-header {
+    border-bottom: none;
+    padding: 1.25rem;
+    font-weight: 600;
+}
+
+/* Light theme - ensure card headers are visible with light background and dark text */
+body:not([data-theme="dark"]):not(.dark-theme) .card-header {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+    color: #000000 !important;
+}
+
+body:not([data-theme="dark"]):not(.dark-theme) .card-header h5,
+body:not([data-theme="dark"]):not(.dark-theme) .card-header h5 *,
+body:not([data-theme="dark"]):not(.dark-theme) .card-header i,
+body:not([data-theme="dark"]):not(.dark-theme) .card-header * {
+    color: #000000 !important;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn {
+    border-radius: 12px;
+    padding: 0.7rem 1.8rem;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.3px;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: var(--primary-gradient);
+    box-shadow: var(--shadow-sm);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px) scale(1.02);
+    color: white;
+}
+
+.btn-primary:active {
+    transform: translateY(-1px) scale(0.98);
+}
+
+.btn-success {
+    background: var(--success-gradient);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-success:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.btn-info {
+    background: var(--info-gradient);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-info:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.btn-warning {
+    background: var(--warning-gradient);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-warning:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary, .btn-outline-success {
+    border-width: 2px;
+    font-weight: 500;
+}
+
+.btn-outline-primary:hover, .btn-outline-success:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 600;
+    border-radius: 12px;
+    font-size: 0.8em;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.badge:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+.form-control, .form-select {
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
+    padding: 0.85rem 1rem;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.15), var(--shadow-md);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-2px);
+}
+
+.input-group-text {
+    border-radius: 12px 0 0 12px;
+    border: 2px solid #e0e0e0;
+    border-right: none;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.table thead th {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    color: #2c3e50;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 1rem;
+}
+
+/* Override for table-light in light theme */
+.table-light thead th {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%) !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    border-bottom: 3px solid #dee2e6;
+}
+
+.table tbody td {
+    color: #2c3e50;
+    padding: 1.25rem 1rem;
+    vertical-align: middle;
+}
+
+.table tbody tr {
+    transition: var(--transition-fast);
+}
+
+.table tbody tr:hover {
+    background: rgba(102, 126, 234, 0.05);
+    transform: scale(1.01);
+}
+
+.alert {
+    border-radius: 16px;
+    border: none;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1.25rem 1.5rem;
+    font-weight: 500;
+    animation: slideInDown 0.4s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem;
+    transition: var(--transition);
+    border-radius: 12px !important;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.list-group-item:hover {
+    background: rgba(102, 126, 234, 0.08);
+    padding-left: 1.75rem;
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu {
+    border-radius: 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-xl);
+    padding: 0.75rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.98) !important;
+    animation: fadeInDown 0.3s ease-out;
+    z-index: 9999 !important;
+    min-width: 200px;
+    position: absolute !important;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    margin: 0.2rem 0;
+    color: #2c3e50 !important;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.dropdown-item:hover {
+    background: rgba(102, 126, 234, 0.1) !important;
+    color: #667eea !important;
+    transform: translateX(5px);
+}
+
+.dropdown-item i {
+    margin-right: 0.5rem;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-item.active {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    margin-top: auto;
+    padding: 1.5rem 0;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #2c3e50;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .alert {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover::before {
+    transform: scaleX(1);
+}
+
+.stat-card-clickable {
+    cursor: pointer;
+}
+
+.stat-card-clickable:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Keep text colors in stat-card links */
+a.stat-card-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.stat-card-link:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+a.stat-card-link .stat-card-clickable h3,
+a.stat-card-link .stat-card-clickable p {
+    color: inherit;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+.stat-card h3 {
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.empty-state {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.empty-state i {
+    font-size: 4rem;
+    opacity: 0.3;
+    margin-bottom: 1rem;
+}
+
+.job-card {
+    transition: var(--transition);
+    height: 100%;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-card .card-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.job-card .card-title a:hover {
+    color: #667eea;
+}
+
+.dark-theme .job-card .card-title a {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .job-card .card-title a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .card-title {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .card-subtitle {
+    color: #b0b0b0 !important;
+}
+
+.dark-theme .list-group-item a {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .list-group-item a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .list-group-item h6 {
+    color: var(--text-primary) !important;
+}
+
+/* General text elements in dark theme */
+.dark-theme p,
+.dark-theme span:not(.badge):not(.text-muted),
+.dark-theme div:not(.card-header):not(.badge) {
+    color: var(--text-secondary);
+}
+
+.dark-theme .card-text {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme small {
+    color: #b0b0b0 !important;
+}
+
+.dark-theme a:not(.btn):not(.nav-link):not(.dropdown-item) {
+    color: #667eea !important;
+}
+
+.dark-theme a:not(.btn):not(.nav-link):not(.dropdown-item):hover {
+    color: #7c8ef5 !important;
+}
+
+.dark-theme .input-group-text {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .alert {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.dark-theme .alert-success {
+    background: #1e4d2e;
+    border-color: #28a745;
+    color: #d4edda;
+}
+
+.dark-theme .alert-danger {
+    background: #4d1e1e;
+    border-color: #dc3545;
+    color: #f8d7da;
+}
+
+.dark-theme .alert-info {
+    background: #1e3d4d;
+    border-color: #0dcaf0;
+    color: #d1ecf1;
+}
+
+.dark-theme .alert-warning {
+    background: #4d3d1e;
+    border-color: #ffc107;
+    color: #fff3cd;
+}
+
+.dark-theme .bg-light,
+.dark-theme .bg-light * {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .bg-light p,
+.dark-theme .bg-light h6,
+.dark-theme .bg-light strong,
+.dark-theme .bg-light li,
+.dark-theme .bg-light ul,
+.dark-theme .bg-light i,
+.dark-theme .bg-light span,
+.dark-theme .bg-light .float-end,
+.dark-theme .bg-light .text-primary,
+.dark-theme .bg-light .text-success,
+.dark-theme .bg-light .text-info,
+.dark-theme .bg-light .text-danger {
+    color: var(--text-primary) !important;
+}
+
+/* Ensure icons and text in bg-light are visible */
+.dark-theme .bg-light i.text-primary {
+    color: #667eea !important;
+}
+
+.dark-theme .bg-light i.text-success {
+    color: #51cf66 !important;
+}
+
+.dark-theme .bg-light i.text-info {
+    color: #74c0fc !important;
+}
+
+.dark-theme .bg-light i.text-danger {
+    color: #ff6b6b !important;
+}
+
+.dark-theme .card-footer {
+    background: var(--bg-secondary) !important;
+    border-top-color: var(--bg-tertiary) !important;
+}
+
+.dark-theme .empty-state {
+    color: var(--text-secondary);
+}
+
+.dark-theme .empty-state h5 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme label,
+.dark-theme .form-label {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .fw-bold {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .fw-normal {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .fw-semibold {
+    color: #f0f0f0 !important;
+}
+
+.dark-theme .linebreaks,
+.dark-theme .linebreaks p {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .rounded {
+    border-color: var(--border-color) !important;
+}
+
+.dark-theme .border-left {
+    border-color: #667eea !important;
+}
+
+.dark-theme .col-md-9, .dark-theme .col-md-8, .dark-theme .col-md-6,
+.dark-theme .col-md-4, .dark-theme .col-md-3, .dark-theme .col-md-12 {
+    color: var(--text-secondary);
+}
+
+.dark-theme hr {
+    border-color: var(--border-color) !important;
+    opacity: 1;
+}
+
+.dark-theme .border-top,
+.dark-theme .border-start {
+    border-color: var(--bg-tertiary) !important;
+}
+
+.dark-theme .border-primary {
+    border-color: #667eea !important;
+}
+
+.dark-theme .text-danger { color: #ff6b6b !important; }
+.dark-theme .text-success { color: #51cf66 !important; }
+.dark-theme .text-warning { color: #ffd43b !important; }
+.dark-theme .text-info { color: #74c0fc !important; }
+.dark-theme .text-primary { color: #667eea !important; }
+.dark-theme .text-secondary { color: #adb5bd !important; }
+.dark-theme .placeholder { color: #6c757d !important; }
+.dark-theme ::placeholder { color: #8d8d9d !important; opacity: 1; }
+.dark-theme .form-text { color: #b0b0b0 !important; }
+.dark-theme .invalid-feedback { color: #ff6b6b !important; }
+.dark-theme .valid-feedback { color: #51cf66 !important; }
+.dark-theme .is-invalid { border-color: #ff6b6b !important; }
+.dark-theme .is-valid { border-color: #51cf66 !important; }
+
+/* Universal text visibility for dark theme */
+.dark-theme .card-body p:not(.text-muted):not(.text-danger):not(.text-success):not(.text-warning):not(.text-info) {
+    color: var(--text-secondary) !important;
+}
+
+.dark-theme .card-body div:not(.badge):not(.btn):not(.text-muted) {
+    color: var(--text-secondary);
+}
+
+.dark-theme .card-body a:not(.btn):not(.badge) {
+    color: #667eea !important;
+}
+
+.dark-theme .card-body a:not(.btn):not(.badge):hover {
+    color: #7c8ef5 !important;
+}
+
+.dark-theme .card-body strong {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .card-body em {
+    color: var(--text-secondary) !important;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Dark Theme Styles - Optimized with variables */
+[data-theme="dark"], .dark-theme {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #16213e 100%);
+    color: var(--text-secondary);
+}
+
+.dark-theme .card {
+    background: rgba(45, 45, 68, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-secondary);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .card:hover {
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+.dark-theme .card-header {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.dark-theme .card-body {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+}
+
+.dark-theme h1, .dark-theme h2, .dark-theme h3,
+.dark-theme h4, .dark-theme h5, .dark-theme h6 {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .form-control,
+.dark-theme .form-select {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.dark-theme .form-control:focus,
+.dark-theme .form-select:focus {
+    background: rgba(77, 77, 108, 0.9);
+    border-color: #667eea;
+    color: var(--text-primary);
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.2), var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.dark-theme .list-group-item {
+    background: rgba(45, 45, 68, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-secondary);
+}
+
+.dark-theme .list-group-item:hover {
+    background: rgba(102, 126, 234, 0.15);
+    transform: translateX(5px);
+    box-shadow: var(--shadow-sm);
+}
+
+.dark-theme .text-muted {
+    color: var(--text-muted) !important;
+}
+
+.dark-theme .dropdown-menu {
+    background: var(--bg-tertiary) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
+    z-index: 9999 !important;
+    position: absolute !important;
+}
+
+.dark-theme .dropdown-item {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .dropdown-item:hover {
+    background: rgba(102, 126, 234, 0.3) !important;
+    color: var(--text-primary) !important;
+    transform: translateX(5px);
+}
+
+.dark-theme .dropdown-item.active {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+}
+
+.dark-theme .dropdown-item.active:hover {
+    background: var(--primary-hover) !important;
+    color: white !important;
+}
+
+.dark-theme .dropdown-divider {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    opacity: 1;
+}
+
+.dark-theme .stat-card {
+    background: rgba(45, 45, 68, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-secondary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .stat-card:hover {
+    background: rgba(45, 45, 68, 0.95);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+.dark-theme .table {
+    color: var(--text-secondary);
+}
+
+.dark-theme .table thead th {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.dark-theme .table tbody tr {
+    background: var(--bg-secondary);
+}
+
+.dark-theme .table tbody tr:hover {
+    background: var(--bg-tertiary);
+}
+
+/* Light theme - lighter table headers for better visibility */
+.table.table-light thead th,
+.table-light thead th,
+.table-light th,
+thead.table-light th {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    border-color: #dee2e6 !important;
+}
+
+.table thead.table-light th {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.table-light {
+    background-color: #ffffff !important;
+}
+
+/* Ensure text is visible in light theme tables */
+body:not([data-theme="dark"]):not(.dark-theme) .table-light thead th,
+body:not([data-theme="dark"]):not(.dark-theme) thead.table-light th {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.dark-theme .table-light,
+.dark-theme .table {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table-light th,
+.dark-theme .table-dark th,
+.dark-theme .table thead th {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.dark-theme .table thead th {
+    background-color: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.dark-theme .table tbody {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .table tbody tr {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .table tbody tr:hover {
+    background: var(--bg-tertiary) !important;
+}
+
+/* Ensure all tables have dark background in dark theme */
+.dark-theme .table-responsive .table,
+.dark-theme .card-body .table,
+.dark-theme .table {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-theme .table-responsive {
+    background-color: transparent !important;
+}
+
+/* Job List table - ensure all columns are visible in dark theme */
+/* Using specific class for job list table */
+.dark-theme .job-list-table tbody td,
+.dark-theme .job-list-table tbody td *,
+.dark-theme .job-list-table tbody td a,
+.dark-theme .job-list-table tbody td span,
+.dark-theme .job-list-table tbody td small,
+.dark-theme .job-list-table tbody td i,
+.dark-theme .job-list-table tbody td strong {
+    color: #ffffff !important;
+}
+
+.dark-theme .job-list-table tbody td a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .job-list-table tbody td .text-muted,
+.dark-theme .job-list-table tbody td small.text-muted,
+.dark-theme .job-list-table tbody td i.text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* First column specifically */
+.dark-theme .job-list-table tbody td:first-child,
+.dark-theme .job-list-table tbody td:first-child *,
+.dark-theme .job-list-table tbody td:first-child a,
+.dark-theme .job-list-table tbody td:first-child .fw-semibold {
+    color: #ffffff !important;
+}
+
+.dark-theme .job-list-table tbody td:first-child a:hover {
+    color: #667eea !important;
+}
+
+/* All columns */
+.dark-theme .job-list-table tbody td:nth-child(1),
+.dark-theme .job-list-table tbody td:nth-child(1) *,
+.dark-theme .job-list-table tbody td:nth-child(2),
+.dark-theme .job-list-table tbody td:nth-child(2) *,
+.dark-theme .job-list-table tbody td:nth-child(3),
+.dark-theme .job-list-table tbody td:nth-child(3) *,
+.dark-theme .job-list-table tbody td:nth-child(4),
+.dark-theme .job-list-table tbody td:nth-child(4) *,
+.dark-theme .job-list-table tbody td:nth-child(5),
+.dark-theme .job-list-table tbody td:nth-child(5) * {
+    color: #ffffff !important;
+}
+
+/* Using data-theme attribute */
+[data-theme="dark"] .job-list-table tbody td,
+[data-theme="dark"] .job-list-table tbody td *,
+[data-theme="dark"] .job-list-table tbody td a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .job-list-table tbody td a:hover {
+    color: #667eea !important;
+}
+
+/* First column (Job Title) - ensure links are visible */
+.dark-theme .table tbody .job-row td:first-child,
+.dark-theme .table tbody .job-row td:first-child *,
+.dark-theme .table tbody .job-row td:nth-child(1),
+.dark-theme .table tbody .job-row td:nth-child(1) * {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table tbody .job-row td:first-child a,
+.dark-theme .table tbody .job-row td:nth-child(1) a {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table tbody .job-row td:first-child a:hover,
+.dark-theme .table tbody .job-row td:nth-child(1) a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .table tbody .job-row td:first-child .fw-semibold,
+.dark-theme .table tbody .job-row td:nth-child(1) .fw-semibold {
+    color: var(--text-primary) !important;
+    font-weight: 600 !important;
+}
+
+/* All other columns in job list table */
+.dark-theme .table tbody .job-row td:nth-child(2),
+.dark-theme .table tbody .job-row td:nth-child(2) *,
+.dark-theme .table tbody .job-row td:nth-child(3),
+.dark-theme .table tbody .job-row td:nth-child(3) *,
+.dark-theme .table tbody .job-row td:nth-child(4),
+.dark-theme .table tbody .job-row td:nth-child(4) *,
+.dark-theme .table tbody .job-row td:nth-child(5),
+.dark-theme .table tbody .job-row td:nth-child(5) * {
+    color: var(--text-primary) !important;
+}
+
+/* Text-muted in job list table */
+.dark-theme .table tbody .job-row td .text-muted,
+.dark-theme .table tbody .job-row td small.text-muted,
+.dark-theme .table tbody .job-row td i.text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* Links in job list table */
+.dark-theme .table tbody .job-row td a:not(.btn) {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table tbody .job-row td a:not(.btn):hover {
+    color: #667eea !important;
+}
+
+/* Maximum specificity for job list table - using card-body selector with direct color */
+.dark-theme .card-body .table tbody .job-row td,
+.dark-theme .card-body .table tbody .job-row td *,
+.dark-theme .card-body .table tbody .job-row td:first-child,
+.dark-theme .card-body .table tbody .job-row td:first-child *,
+.dark-theme .card-body .table tbody .job-row td:first-child a,
+.dark-theme .card-body .table tbody .job-row td:first-child .fw-semibold,
+.dark-theme .card-body .table tbody .job-row td:nth-child(1),
+.dark-theme .card-body .table tbody .job-row td:nth-child(1) *,
+.dark-theme .card-body .table tbody .job-row td:nth-child(1) a,
+.dark-theme .card-body .table tbody .job-row td:nth-child(1) .fw-semibold {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body .table tbody .job-row td:first-child a:hover,
+.dark-theme .card-body .table tbody .job-row td:nth-child(1) a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .card-body .table tbody .job-row td .text-muted,
+.dark-theme .card-body .table tbody .job-row td small.text-muted,
+.dark-theme .card-body .table tbody .job-row td i.text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* All columns in job list table */
+.dark-theme .card-body .table tbody .job-row td:nth-child(2),
+.dark-theme .card-body .table tbody .job-row td:nth-child(2) *,
+.dark-theme .card-body .table tbody .job-row td:nth-child(3),
+.dark-theme .card-body .table tbody .job-row td:nth-child(3) *,
+.dark-theme .card-body .table tbody .job-row td:nth-child(4),
+.dark-theme .card-body .table tbody .job-row td:nth-child(4) *,
+.dark-theme .card-body .table tbody .job-row td:nth-child(5),
+.dark-theme .card-body .table tbody .job-row td:nth-child(5) * {
+    color: #ffffff !important;
+}
+
+/* Using data-theme attribute for maximum compatibility */
+[data-theme="dark"] .table tbody .job-row td,
+[data-theme="dark"] .table tbody .job-row td *,
+[data-theme="dark"] .table tbody .job-row td:first-child,
+[data-theme="dark"] .table tbody .job-row td:first-child *,
+[data-theme="dark"] .table tbody .job-row td:first-child a,
+[data-theme="dark"] .table tbody .job-row td:nth-child(1),
+[data-theme="dark"] .table tbody .job-row td:nth-child(1) *,
+[data-theme="dark"] .table tbody .job-row td:nth-child(1) a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] .table tbody .job-row td:first-child a:hover,
+[data-theme="dark"] .table tbody .job-row td:nth-child(1) a:hover {
+    color: #667eea !important;
+}
+
+/* Body and html selectors for maximum specificity */
+body.dark-theme .table tbody .job-row td,
+html body.dark-theme .table tbody .job-row td,
+body.dark-theme .table tbody .job-row td *,
+html body.dark-theme .table tbody .job-row td *,
+body.dark-theme .table tbody .job-row td:first-child,
+html body.dark-theme .table tbody .job-row td:first-child,
+body.dark-theme .table tbody .job-row td:first-child *,
+html body.dark-theme .table tbody .job-row td:first-child *,
+body.dark-theme .table tbody .job-row td:first-child a,
+html body.dark-theme .table tbody .job-row td:first-child a {
+    color: #ffffff !important;
+}
+
+body.dark-theme .table tbody .job-row td:first-child a:hover,
+html body.dark-theme .table tbody .job-row td:first-child a:hover {
+    color: #667eea !important;
+}
+
+/* Explicit styles for all columns in job list table with maximum specificity */
+body.dark-theme .card-body .table tbody .job-row td:nth-child(1),
+body.dark-theme .card-body .table tbody .job-row td:nth-child(1) *,
+body.dark-theme .card-body .table tbody .job-row td:nth-child(1) a,
+body.dark-theme .card-body .table tbody .job-row td:nth-child(1) .fw-semibold,
+body.dark-theme .card-body .table tbody .job-row td:nth-child(2),
+body.dark-theme .card-body .table tbody .job-row td:nth-child(2) *,
+body.dark-theme .card-body .table tbody .job-row td:nth-child(3),
+body.dark-theme .card-body .table tbody .job-row td:nth-child(3) *,
+body.dark-theme .card-body .table tbody .job-row td:nth-child(4),
+body.dark-theme .card-body .table tbody .job-row td:nth-child(4) *,
+body.dark-theme .card-body .table tbody .job-row td:nth-child(5),
+body.dark-theme .card-body .table tbody .job-row td:nth-child(5) * {
+    color: #ffffff !important;
+}
+
+body.dark-theme .card-body .table tbody .job-row td .text-muted,
+body.dark-theme .card-body .table tbody .job-row td small.text-muted,
+body.dark-theme .card-body .table tbody .job-row td i.text-muted {
+    color: #b0b0b0 !important;
+}
+
+/* General table rules - exclude history and job list tables */
+.dark-theme .table tbody:not(#historyTableBody):not(#jobListTableBody) td,
+.dark-theme .table tbody:not(#historyTableBody):not(#jobListTableBody) td *:not(.text-muted):not(.text-success):not(.text-danger):not(.text-warning):not(.text-info):not(.text-primary):not(.text-secondary),
+.dark-theme .table tbody:not(#historyTableBody):not(#jobListTableBody) td i,
+.dark-theme .table tbody:not(#historyTableBody):not(#jobListTableBody) td .fw-bold,
+.dark-theme .table tbody:not(#historyTableBody):not(#jobListTableBody) td span:not(.badge):not(.text-muted):not(.text-success) {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table tbody td .fw-bold {
+    font-weight: 700 !important;
+}
+
+/* Specific column colors for job list table in dark theme */
+/* Exclude history table from these rules */
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(2), /* Employer column */
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(2) *,
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(2) i {
+    color: #808080 !important;
+}
+
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(4), /* Created column */
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(4) *,
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(4) small {
+    color: #808080 !important;
+}
+
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(5), /* Actions column */
+.dark-theme .table tbody:not(#historyTableBody) td:nth-child(5) * {
+    color: #808080 !important;
+}
+
+/* Header colors for specific columns in dark theme */
+.dark-theme .table thead th:nth-child(2), /* Employer header */
+.dark-theme .table thead th:nth-child(4), /* Created header */
+.dark-theme .table thead th:nth-child(5) { /* Actions header */
+    color: #808080 !important;
+}
+
+/* History table text visibility in dark theme - ensure all text is visible */
+.dark-theme .card-body .table tbody td,
+.dark-theme .table tbody td {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .card-body .table tbody td strong,
+.dark-theme .card-body .table tbody td .fw-bold,
+.dark-theme .table tbody td strong,
+.dark-theme .table tbody td .fw-bold {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+}
+
+.dark-theme .card-body .table tbody td small.text-muted,
+.dark-theme .card-body .table tbody td span.text-muted,
+.dark-theme .card-body .table tbody td .text-muted,
+.dark-theme .table tbody td small.text-muted,
+.dark-theme .table tbody td span.text-muted,
+.dark-theme .table tbody td .text-muted {
+    color: #b0b0b0 !important;
+}
+
+.dark-theme .card-body .table tbody td span.text-success,
+.dark-theme .card-body .table tbody td .text-success,
+.dark-theme .table tbody td span.text-success,
+.dark-theme .table tbody td .text-success {
+    color: #51cf66 !important;
+}
+
+.dark-theme .card-body .table tbody td em,
+.dark-theme .table tbody td em {
+    color: var(--text-secondary) !important;
+    font-style: italic;
+}
+
+/* Ensure all nested elements in history table are visible */
+.dark-theme .card-body .table tbody td *:not(.text-muted):not(.text-success):not(.badge),
+.dark-theme .table tbody td *:not(.text-muted):not(.text-success):not(.badge) {
+    color: var(--text-primary) !important;
+}
+
+/* History table headers visibility in dark theme */
+.dark-theme .card-body .table thead th,
+.dark-theme .table thead th {
+    color: var(--text-primary) !important;
+    background-color: var(--bg-tertiary) !important;
+}
+
+/* History table - ensure dark background */
+.dark-theme .card-body .table,
+.dark-theme #historyTableBody,
+.dark-theme #historyTableBody tr,
+.dark-theme #historyTableBody td {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme #historyTableBody tr:hover {
+    background: var(--bg-tertiary) !important;
+}
+
+/* Specific styles for history table using ID selector for maximum specificity */
+.dark-theme .card-body #historyTableBody td,
+.dark-theme .card #historyTableBody td,
+.dark-theme #historyTableBody td {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .card-body #historyTableBody td *,
+.dark-theme .card #historyTableBody td *,
+.dark-theme #historyTableBody td * {
+    color: var(--text-primary) !important;
+}
+
+/* First column (Field name) - ensure strong text is visible with maximum specificity */
+.dark-theme .card-body #historyTableBody tr td:first-child,
+.dark-theme .card-body #historyTableBody tr td:first-child *,
+.dark-theme .card #historyTableBody tr td:first-child,
+.dark-theme .card #historyTableBody tr td:first-child *,
+.dark-theme #historyTableBody tr td:first-child,
+.dark-theme #historyTableBody tr td:first-child *,
+.dark-theme #historyTableBody td:first-child,
+.dark-theme #historyTableBody td:first-child *,
+.dark-theme #historyTableBody td:nth-child(1),
+.dark-theme #historyTableBody td:nth-child(1) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #historyTableBody tr td:first-child strong,
+.dark-theme .card-body #historyTableBody tr td:nth-child(1) strong,
+.dark-theme .card #historyTableBody tr td:first-child strong,
+.dark-theme .card #historyTableBody tr td:nth-child(1) strong,
+.dark-theme #historyTableBody tr td:first-child strong,
+.dark-theme #historyTableBody tr td:nth-child(1) strong,
+.dark-theme #historyTableBody td:first-child strong,
+.dark-theme #historyTableBody td:nth-child(1) strong,
+.dark-theme #historyTableBody td strong,
+.dark-theme #historyTableBody td .fw-bold {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+.dark-theme #historyTableBody td .text-muted,
+.dark-theme #historyTableBody td span.text-muted,
+.dark-theme #historyTableBody td small.text-muted {
+    color: #b0b0b0 !important;
+}
+
+.dark-theme #historyTableBody td .text-success,
+.dark-theme #historyTableBody td span.text-success {
+    color: #51cf66 !important;
+}
+
+.dark-theme #historyTableBody td em {
+    color: var(--text-secondary) !important;
+    font-style: italic;
+}
+
+/* Styles for history rows - both visible and hidden */
+.dark-theme #historyTableBody tr.history-row td:first-child,
+.dark-theme #historyTableBody tr.history-row td:first-child *,
+.dark-theme #historyTableBody tr.history-row td:first-child strong,
+.dark-theme #historyTableBody tr.history-row-hidden td:first-child,
+.dark-theme #historyTableBody tr.history-row-hidden td:first-child *,
+.dark-theme #historyTableBody tr.history-row-hidden td:first-child strong {
+    color: #ffffff !important;
+}
+
+.dark-theme #historyTableBody tr.history-row td:first-child strong,
+.dark-theme #historyTableBody tr.history-row-hidden td:first-child strong {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+}
+
+/* Maximum specificity for first column - using body and html selectors */
+body.dark-theme #historyTableBody td:first-child,
+html body.dark-theme #historyTableBody td:first-child,
+body.dark-theme #historyTableBody td:first-child *,
+html body.dark-theme #historyTableBody td:first-child *,
+body.dark-theme #historyTableBody td:first-child strong,
+html body.dark-theme #historyTableBody td:first-child strong {
+    color: #ffffff !important;
+}
+
+body.dark-theme #historyTableBody td:first-child strong,
+html body.dark-theme #historyTableBody td:first-child strong {
+    font-weight: 700 !important;
+}
+
+/* Using data-theme attribute for maximum compatibility */
+[data-theme="dark"] #historyTableBody td:first-child,
+[data-theme="dark"] #historyTableBody td:first-child *,
+[data-theme="dark"] #historyTableBody td:first-child strong,
+html[data-theme="dark"] #historyTableBody td:first-child,
+html[data-theme="dark"] #historyTableBody td:first-child *,
+html[data-theme="dark"] #historyTableBody td:first-child strong,
+body[data-theme="dark"] #historyTableBody td:first-child,
+body[data-theme="dark"] #historyTableBody td:first-child *,
+body[data-theme="dark"] #historyTableBody td:first-child strong {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #historyTableBody td:first-child strong,
+html[data-theme="dark"] #historyTableBody td:first-child strong,
+body[data-theme="dark"] #historyTableBody td:first-child strong {
+    font-weight: 700 !important;
+}
+
+/* Explicit styles for all columns in history table with direct color values */
+.dark-theme .card-body #historyTableBody td:nth-child(1),
+.dark-theme .card-body #historyTableBody td:nth-child(1) *,
+.dark-theme .card #historyTableBody td:nth-child(1),
+.dark-theme .card #historyTableBody td:nth-child(1) *,
+.dark-theme #historyTableBody td:nth-child(1),
+.dark-theme #historyTableBody td:nth-child(1) *,
+.dark-theme #historyTableBody td:nth-child(1) strong {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #historyTableBody td:nth-child(2),
+.dark-theme .card-body #historyTableBody td:nth-child(2) *,
+.dark-theme .card #historyTableBody td:nth-child(2),
+.dark-theme .card #historyTableBody td:nth-child(2) *,
+.dark-theme #historyTableBody td:nth-child(2),
+.dark-theme #historyTableBody td:nth-child(2) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #historyTableBody td:nth-child(3),
+.dark-theme .card-body #historyTableBody td:nth-child(3) *,
+.dark-theme .card #historyTableBody td:nth-child(3),
+.dark-theme .card #historyTableBody td:nth-child(3) *,
+.dark-theme #historyTableBody td:nth-child(3),
+.dark-theme #historyTableBody td:nth-child(3) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #historyTableBody td:nth-child(4),
+.dark-theme .card-body #historyTableBody td:nth-child(4) *,
+.dark-theme .card #historyTableBody td:nth-child(4),
+.dark-theme .card #historyTableBody td:nth-child(4) *,
+.dark-theme #historyTableBody td:nth-child(4),
+.dark-theme #historyTableBody td:nth-child(4) * {
+    color: #ffffff !important;
+}
+
+/* Override text-muted and text-success in all columns */
+.dark-theme #historyTableBody td:nth-child(1) .text-muted,
+.dark-theme #historyTableBody td:nth-child(2) .text-muted,
+.dark-theme #historyTableBody td:nth-child(3) .text-muted,
+.dark-theme #historyTableBody td:nth-child(4) .text-muted,
+.dark-theme #historyTableBody td:nth-child(1) span.text-muted,
+.dark-theme #historyTableBody td:nth-child(2) span.text-muted,
+.dark-theme #historyTableBody td:nth-child(3) span.text-muted,
+.dark-theme #historyTableBody td:nth-child(4) span.text-muted,
+.dark-theme #historyTableBody td:nth-child(1) small.text-muted,
+.dark-theme #historyTableBody td:nth-child(2) small.text-muted,
+.dark-theme #historyTableBody td:nth-child(3) small.text-muted,
+.dark-theme #historyTableBody td:nth-child(4) small.text-muted {
+    color: #b0b0b0 !important;
+}
+
+.dark-theme #historyTableBody td:nth-child(1) .text-success,
+.dark-theme #historyTableBody td:nth-child(2) .text-success,
+.dark-theme #historyTableBody td:nth-child(3) .text-success,
+.dark-theme #historyTableBody td:nth-child(4) .text-success,
+.dark-theme #historyTableBody td:nth-child(1) span.text-success,
+.dark-theme #historyTableBody td:nth-child(2) span.text-success,
+.dark-theme #historyTableBody td:nth-child(3) span.text-success,
+.dark-theme #historyTableBody td:nth-child(4) span.text-success {
+    color: #51cf66 !important;
+}
+
+/* ============================================
+   JOB LIST TABLE - Exact copy of history table styles
+   ============================================ */
+
+/* Job list table - ensure dark background */
+.dark-theme #jobListTableBody,
+.dark-theme #jobListTableBody tr,
+.dark-theme #jobListTableBody td {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme #jobListTableBody tr:hover {
+    background: var(--bg-tertiary) !important;
+}
+
+/* Specific styles for job list table using ID selector for maximum specificity */
+.dark-theme .card-body #jobListTableBody td,
+.dark-theme .card #jobListTableBody td,
+.dark-theme #jobListTableBody td {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td *,
+.dark-theme .card #jobListTableBody td *,
+.dark-theme #jobListTableBody td * {
+    color: #ffffff !important;
+}
+
+/* First column (Job Title) - ensure links are visible with maximum specificity */
+.dark-theme .card-body #jobListTableBody tr td:first-child,
+.dark-theme .card-body #jobListTableBody tr td:first-child *,
+.dark-theme .card #jobListTableBody tr td:first-child,
+.dark-theme .card #jobListTableBody tr td:first-child *,
+.dark-theme #jobListTableBody tr td:first-child,
+.dark-theme #jobListTableBody tr td:first-child *,
+.dark-theme #jobListTableBody td:first-child,
+.dark-theme #jobListTableBody td:first-child *,
+.dark-theme #jobListTableBody td:nth-child(1),
+.dark-theme #jobListTableBody td:nth-child(1) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody tr td:first-child a,
+.dark-theme .card-body #jobListTableBody tr td:nth-child(1) a,
+.dark-theme .card #jobListTableBody tr td:first-child a,
+.dark-theme .card #jobListTableBody tr td:nth-child(1) a,
+.dark-theme #jobListTableBody tr td:first-child a,
+.dark-theme #jobListTableBody tr td:nth-child(1) a,
+.dark-theme #jobListTableBody td:first-child a,
+.dark-theme #jobListTableBody td:nth-child(1) a {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody tr td:first-child a:hover,
+.dark-theme .card-body #jobListTableBody tr td:nth-child(1) a:hover,
+.dark-theme .card #jobListTableBody tr td:first-child a:hover,
+.dark-theme .card #jobListTableBody tr td:nth-child(1) a:hover,
+.dark-theme #jobListTableBody tr td:first-child a:hover,
+.dark-theme #jobListTableBody tr td:nth-child(1) a:hover,
+.dark-theme #jobListTableBody td:first-child a:hover,
+.dark-theme #jobListTableBody td:nth-child(1) a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .card-body #jobListTableBody tr td:first-child .fw-semibold,
+.dark-theme .card-body #jobListTableBody tr td:nth-child(1) .fw-semibold,
+.dark-theme .card #jobListTableBody tr td:first-child .fw-semibold,
+.dark-theme .card #jobListTableBody tr td:nth-child(1) .fw-semibold,
+.dark-theme #jobListTableBody tr td:first-child .fw-semibold,
+.dark-theme #jobListTableBody tr td:nth-child(1) .fw-semibold,
+.dark-theme #jobListTableBody td:first-child .fw-semibold,
+.dark-theme #jobListTableBody td:nth-child(1) .fw-semibold {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+.dark-theme #jobListTableBody td .text-muted,
+.dark-theme #jobListTableBody td span.text-muted,
+.dark-theme #jobListTableBody td small.text-muted {
+    color: #d0d0d0 !important;
+}
+
+/* Maximum specificity for first column - using body and html selectors */
+body.dark-theme #jobListTableBody td:first-child,
+html body.dark-theme #jobListTableBody td:first-child,
+body.dark-theme #jobListTableBody td:first-child *,
+html body.dark-theme #jobListTableBody td:first-child *,
+body.dark-theme #jobListTableBody td:first-child a,
+html body.dark-theme #jobListTableBody td:first-child a {
+    color: #ffffff !important;
+}
+
+body.dark-theme #jobListTableBody td:first-child a:hover,
+html body.dark-theme #jobListTableBody td:first-child a:hover {
+    color: #667eea !important;
+}
+
+/* Using data-theme attribute for maximum compatibility */
+[data-theme="dark"] #jobListTableBody td:first-child,
+[data-theme="dark"] #jobListTableBody td:first-child *,
+[data-theme="dark"] #jobListTableBody td:first-child a,
+html[data-theme="dark"] #jobListTableBody td:first-child,
+html[data-theme="dark"] #jobListTableBody td:first-child *,
+html[data-theme="dark"] #jobListTableBody td:first-child a,
+body[data-theme="dark"] #jobListTableBody td:first-child,
+body[data-theme="dark"] #jobListTableBody td:first-child *,
+body[data-theme="dark"] #jobListTableBody td:first-child a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #jobListTableBody td:first-child a:hover,
+html[data-theme="dark"] #jobListTableBody td:first-child a:hover,
+body[data-theme="dark"] #jobListTableBody td:first-child a:hover {
+    color: #667eea !important;
+}
+
+/* Explicit styles for all columns in job list table with direct color values */
+.dark-theme .card-body #jobListTableBody td:nth-child(1),
+.dark-theme .card-body #jobListTableBody td:nth-child(1) *,
+.dark-theme .card #jobListTableBody td:nth-child(1),
+.dark-theme .card #jobListTableBody td:nth-child(1) *,
+.dark-theme #jobListTableBody td:nth-child(1),
+.dark-theme #jobListTableBody td:nth-child(1) *,
+.dark-theme #jobListTableBody td:nth-child(1) a,
+.dark-theme #jobListTableBody td:nth-child(1) .fw-semibold {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(2),
+.dark-theme .card-body #jobListTableBody td:nth-child(2) *,
+.dark-theme .card #jobListTableBody td:nth-child(2),
+.dark-theme .card #jobListTableBody td:nth-child(2) *,
+.dark-theme #jobListTableBody td:nth-child(2),
+.dark-theme #jobListTableBody td:nth-child(2) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(3),
+.dark-theme .card-body #jobListTableBody td:nth-child(3) *,
+.dark-theme .card #jobListTableBody td:nth-child(3),
+.dark-theme .card #jobListTableBody td:nth-child(3) *,
+.dark-theme #jobListTableBody td:nth-child(3),
+.dark-theme #jobListTableBody td:nth-child(3) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(4),
+.dark-theme .card-body #jobListTableBody td:nth-child(4) *,
+.dark-theme .card #jobListTableBody td:nth-child(4),
+.dark-theme .card #jobListTableBody td:nth-child(4) *,
+.dark-theme #jobListTableBody td:nth-child(4),
+.dark-theme #jobListTableBody td:nth-child(4) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(5),
+.dark-theme .card-body #jobListTableBody td:nth-child(5) *,
+.dark-theme .card #jobListTableBody td:nth-child(5),
+.dark-theme .card #jobListTableBody td:nth-child(5) *,
+.dark-theme #jobListTableBody td:nth-child(5),
+.dark-theme #jobListTableBody td:nth-child(5) * {
+    color: #ffffff !important;
+}
+
+/* Override text-muted in all columns - lighter color */
+.dark-theme #jobListTableBody td:nth-child(1) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(2) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(3) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(4) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(1) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(2) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(3) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(4) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(1) small.text-muted,
+.dark-theme #jobListTableBody td:nth-child(2) small.text-muted,
+.dark-theme #jobListTableBody td:nth-child(3) small.text-muted,
+.dark-theme #jobListTableBody td:nth-child(4) small.text-muted {
+    color: #d0d0d0 !important;
+}
+
+/* Top Employers table - dark background with light text in dark theme */
+.dark-theme .top-employers-table,
+.dark-theme .top-employers-table thead,
+.dark-theme .top-employers-table tbody {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .top-employers-table thead th {
+    background: var(--bg-tertiary) !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-color) !important;
+}
+
+.dark-theme .top-employers-table tbody td,
+.dark-theme .top-employers-table tbody td *,
+.dark-theme .top-employers-table tbody td i,
+.dark-theme .top-employers-table tbody td .fw-bold,
+.dark-theme .top-employers-table tbody td span:not(.badge) {
+    color: var(--text-primary) !important;
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme .top-employers-table tbody td {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-theme .top-employers-table tbody td .fw-bold {
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .top-employers-table tbody tr:hover td {
+    background-color: var(--bg-tertiary) !important;
+}
+
+.dark-theme .top-employers-table tbody tr {
+    background-color: var(--bg-secondary) !important;
+}
+
+.dark-theme .table-bordered,
+.dark-theme .table-bordered th,
+.dark-theme .table-bordered td {
+    border-color: var(--border-color) !important;
+}
+
+/* Table-sm and table-bordered in dark theme */
+.dark-theme .table-sm,
+.dark-theme .table-sm tbody td,
+.dark-theme .table-sm thead th {
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table-sm tbody td,
+.dark-theme .table-sm tbody td *,
+.dark-theme .table-sm tbody td span,
+.dark-theme .table-sm tbody td .badge {
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .table-sm tbody td .text-muted {
+    color: #b0b0b0 !important;
+}
+
+.dark-theme footer {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #16213e 100%);
+}
+
+.theme-toggle {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Navbar styles for dark theme */
+.dark-theme .navbar {
+    background: var(--primary-gradient) !important;
+}
+
+.dark-theme .navbar-brand,
+.dark-theme .navbar-dark .navbar-brand,
+.dark-theme .navbar-brand *,
+.dark-theme .navbar-dark .navbar-brand *,
+.dark-theme .navbar-brand span,
+.dark-theme .navbar-dark .navbar-brand span,
+.dark-theme .navbar-brand i,
+.dark-theme .navbar-dark .navbar-brand i,
+.dark-theme .navbar-brand:hover,
+.dark-theme .navbar-dark .navbar-brand:hover,
+.dark-theme .navbar-brand:hover *,
+.dark-theme .navbar-dark .navbar-brand:hover *,
+.dark-theme .navbar-brand:hover i,
+.dark-theme .navbar-dark .navbar-brand:hover i {
+    color: var(--text-primary) !important;
+    opacity: 1 !important;
+}
+
+.dark-theme .nav-link,
+.dark-theme .nav-link span,
+.dark-theme .nav-link i,
+.dark-theme .navbar-nav .nav-link,
+.dark-theme .navbar-nav .nav-link i,
+.dark-theme .navbar-nav .nav-link span {
+    color: var(--text-primary) !important;
+    background: transparent !important;
+}
+
+.dark-theme .nav-link:hover,
+.dark-theme .navbar-nav .nav-link:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .nav-link.active,
+.dark-theme .navbar-nav .nav-link.active {
+    background: rgba(102, 126, 234, 0.3) !important;
+    color: var(--text-primary) !important;
+}
+
+.dark-theme .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.dark-theme .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Utility classes for common inline styles */
+.card-header-primary {
+    background: var(--primary-gradient) !important;
+    color: white !important;
+}
+
+.card-header-success {
+    background: var(--success-gradient) !important;
+    color: white !important;
+}
+
+.card-header-info {
+    background: var(--info-gradient) !important;
+    color: white !important;
+}
+
+.card-header-warning {
+    background: var(--warning-gradient) !important;
+    color: white !important;
+}
+
+.card-header-dark {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%) !important;
+    color: white !important;
+}
+
+.card-header-blue {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
+    color: white !important;
+}
+
+/* FullCalendar styles */
+#calendar {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.fc-event {
+    cursor: pointer;
+}
+
+.fc-toolbar-title {
+    color: var(--text-primary);
+}
+
+.fc-col-header-cell {
+    background: var(--bg-tertiary, #f8f9fa);
+    color: var(--text-primary, #2c3e50);
+}
+
+.fc-daygrid-day {
+    background: var(--bg-secondary);
+}
+
+.fc-day-today {
+    background: var(--bg-tertiary, #f0f8ff) !important;
+}
+
+/* Light theme fallback for bg-tertiary */
+:root {
+    --bg-tertiary: #f8f9fa;
+}
+
+/* Form check group scrollable */
+.form-check-group {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    padding: 10px;
+}
+
+/* Icon sizes */
+.icon-lg {
+    font-size: 2.5rem;
+}
+
+.icon-xl {
+    font-size: 3rem;
+}
+
+.icon-xxl {
+    font-size: 4rem;
+}
+
+/* Inline form styles */
+.form-inline {
+    display: inline;
+    margin: 0;
+}
+
+/* Progress bar height */
+.progress-lg {
+    height: 30px;
+    border-radius: 15px;
+}
+
+/* Border left accent */
+.border-left-accent {
+    border-left: 4px solid #667eea;
+}
+
+/* Width utilities */
+.w-60 {
+    width: 60px;
+}
+
+/* Icon colors */
+.icon-muted {
+    color: #ccc;
+}
+
+/* Cursor pointer */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Text size */
+.text-normal {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+/* Modern Modal Styles */
+.modal-content {
+    border-radius: 16px;
+    border: none;
+    box-shadow: var(--shadow-xl);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Delete modal header - softer colors */
+.delete-modal-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.dark-theme .delete-modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.modal-header .modal-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-body {
+    padding: 2rem 1.5rem;
+}
+
+.modal-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 1rem 1.5rem;
+    gap: 0.75rem;
+}
+
+.modal-footer .btn {
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.modal-footer .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+
+.modal-footer .btn-danger {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    border: none;
+}
+
+.modal-footer .btn-danger:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+/* Delete modal button - softer colors */
+.delete-modal-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    color: white;
+}
+
+.delete-modal-btn:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #e83e8c 100%);
+    box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.dark-theme .delete-modal-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dark-theme .delete-modal-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Delete modal icon - softer colors */
+.delete-modal-icon {
+    color: #f5576c;
+    transition: transform 0.3s ease;
+}
+
+.delete-modal-icon:hover {
+    transform: scale(1.1);
+}
+
+.dark-theme .delete-modal-icon {
+    color: #667eea;
+}
+
+/* Delete modal alert - softer colors */
+.delete-modal-alert {
+    background: linear-gradient(135deg, rgba(245, 87, 108, 0.1) 0%, rgba(240, 147, 251, 0.1) 100%);
+    border: 1px solid rgba(245, 87, 108, 0.3);
+    color: #d63384;
+}
+
+.dark-theme .delete-modal-alert {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border: 1px solid rgba(102, 126, 234, 0.4);
+    color: #9d7ce8;
+}
+
+/* Unread badge - softer colors */
+.unread-badge {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+    color: white;
+    border: none;
+}
+
+.dark-theme .unread-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Delete All button - softer colors */
+.delete-all-btn {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border: none;
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.delete-all-btn:hover {
+    background: linear-gradient(135deg, #f5576c 0%, #e83e8c 100%);
+    box-shadow: 0 4px 12px rgba(245, 87, 108, 0.4);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.dark-theme .delete-all-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.dark-theme .delete-all-btn:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.modal-footer .btn-secondary {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.modal-footer .btn-secondary:hover {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+.dark-theme .modal-content {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark-theme .modal-body {
+    background: var(--bg-secondary);
+}
+
+.dark-theme .modal-footer {
+    background: var(--bg-secondary);
+    border-top-color: var(--border-color);
+}
+
+.dark-theme .modal-footer .btn-secondary {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+.dark-theme .modal-footer .btn-secondary:hover {
+    background: var(--bg-secondary);
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100% - 3.5rem);
+}
+
+/* Animation for modal */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+    transform: translate(0, -50px);
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+/* ============================================
+   JOB LIST TABLE - Using ID selector like history table
+   ============================================ */
+
+/* Job list table - ensure dark background */
+.dark-theme .card-body .table,
+.dark-theme #jobListTableBody,
+.dark-theme #jobListTableBody tr,
+.dark-theme #jobListTableBody td {
+    background: var(--bg-secondary) !important;
+}
+
+.dark-theme #jobListTableBody tr:hover {
+    background: var(--bg-tertiary) !important;
+}
+
+/* Specific styles for job list table using ID selector for maximum specificity */
+.dark-theme .card-body #jobListTableBody td,
+.dark-theme .card #jobListTableBody td,
+.dark-theme #jobListTableBody td {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td *,
+.dark-theme .card #jobListTableBody td *,
+.dark-theme #jobListTableBody td * {
+    color: #ffffff !important;
+}
+
+/* First column (Job Title) - ensure strong text is visible with maximum specificity */
+.dark-theme .card-body #jobListTableBody tr td:first-child,
+.dark-theme .card-body #jobListTableBody tr td:first-child *,
+.dark-theme .card #jobListTableBody tr td:first-child,
+.dark-theme .card #jobListTableBody tr td:first-child *,
+.dark-theme #jobListTableBody tr td:first-child,
+.dark-theme #jobListTableBody tr td:first-child *,
+.dark-theme #jobListTableBody td:first-child,
+.dark-theme #jobListTableBody td:first-child *,
+.dark-theme #jobListTableBody td:nth-child(1),
+.dark-theme #jobListTableBody td:nth-child(1) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody tr td:first-child a,
+.dark-theme .card-body #jobListTableBody tr td:nth-child(1) a,
+.dark-theme .card #jobListTableBody tr td:first-child a,
+.dark-theme .card #jobListTableBody tr td:nth-child(1) a,
+.dark-theme #jobListTableBody tr td:first-child a,
+.dark-theme #jobListTableBody tr td:nth-child(1) a,
+.dark-theme #jobListTableBody td:first-child a,
+.dark-theme #jobListTableBody td:nth-child(1) a {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody tr td:first-child a:hover,
+.dark-theme .card-body #jobListTableBody tr td:nth-child(1) a:hover,
+.dark-theme .card #jobListTableBody tr td:first-child a:hover,
+.dark-theme .card #jobListTableBody tr td:nth-child(1) a:hover,
+.dark-theme #jobListTableBody tr td:first-child a:hover,
+.dark-theme #jobListTableBody tr td:nth-child(1) a:hover,
+.dark-theme #jobListTableBody td:first-child a:hover,
+.dark-theme #jobListTableBody td:nth-child(1) a:hover {
+    color: #667eea !important;
+}
+
+.dark-theme .card-body #jobListTableBody tr td:first-child .fw-semibold,
+.dark-theme .card-body #jobListTableBody tr td:nth-child(1) .fw-semibold,
+.dark-theme .card #jobListTableBody tr td:first-child .fw-semibold,
+.dark-theme .card #jobListTableBody tr td:nth-child(1) .fw-semibold,
+.dark-theme #jobListTableBody tr td:first-child .fw-semibold,
+.dark-theme #jobListTableBody tr td:nth-child(1) .fw-semibold,
+.dark-theme #jobListTableBody td:first-child .fw-semibold,
+.dark-theme #jobListTableBody td:nth-child(1) .fw-semibold {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
+/* All columns in job list table */
+.dark-theme .card-body #jobListTableBody td:nth-child(1),
+.dark-theme .card-body #jobListTableBody td:nth-child(1) *,
+.dark-theme .card #jobListTableBody td:nth-child(1),
+.dark-theme .card #jobListTableBody td:nth-child(1) *,
+.dark-theme #jobListTableBody td:nth-child(1),
+.dark-theme #jobListTableBody td:nth-child(1) *,
+.dark-theme #jobListTableBody td:nth-child(1) a,
+.dark-theme #jobListTableBody td:nth-child(1) .fw-semibold {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(2),
+.dark-theme .card-body #jobListTableBody td:nth-child(2) *,
+.dark-theme .card #jobListTableBody td:nth-child(2),
+.dark-theme .card #jobListTableBody td:nth-child(2) *,
+.dark-theme #jobListTableBody td:nth-child(2),
+.dark-theme #jobListTableBody td:nth-child(2) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(3),
+.dark-theme .card-body #jobListTableBody td:nth-child(3) *,
+.dark-theme .card #jobListTableBody td:nth-child(3),
+.dark-theme .card #jobListTableBody td:nth-child(3) *,
+.dark-theme #jobListTableBody td:nth-child(3),
+.dark-theme #jobListTableBody td:nth-child(3) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(4),
+.dark-theme .card-body #jobListTableBody td:nth-child(4) *,
+.dark-theme .card #jobListTableBody td:nth-child(4),
+.dark-theme .card #jobListTableBody td:nth-child(4) *,
+.dark-theme #jobListTableBody td:nth-child(4),
+.dark-theme #jobListTableBody td:nth-child(4) * {
+    color: #ffffff !important;
+}
+
+.dark-theme .card-body #jobListTableBody td:nth-child(5),
+.dark-theme .card-body #jobListTableBody td:nth-child(5) *,
+.dark-theme .card #jobListTableBody td:nth-child(5),
+.dark-theme .card #jobListTableBody td:nth-child(5) *,
+.dark-theme #jobListTableBody td:nth-child(5),
+.dark-theme #jobListTableBody td:nth-child(5) * {
+    color: #ffffff !important;
+}
+
+/* Text-muted in job list table */
+.dark-theme #jobListTableBody td .text-muted,
+.dark-theme #jobListTableBody td span.text-muted,
+.dark-theme #jobListTableBody td small.text-muted {
+    color: #d0d0d0 !important;
+}
+
+.dark-theme #jobListTableBody td:nth-child(1) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(2) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(3) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(4) .text-muted,
+.dark-theme #jobListTableBody td:nth-child(1) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(2) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(3) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(4) span.text-muted,
+.dark-theme #jobListTableBody td:nth-child(1) small.text-muted,
+.dark-theme #jobListTableBody td:nth-child(2) small.text-muted,
+.dark-theme #jobListTableBody td:nth-child(3) small.text-muted,
+.dark-theme #jobListTableBody td:nth-child(4) small.text-muted {
+    color: #d0d0d0 !important;
+}
+
+/* Using data-theme attribute for maximum compatibility */
+[data-theme="dark"] #jobListTableBody td,
+[data-theme="dark"] #jobListTableBody td *,
+[data-theme="dark"] #jobListTableBody td:first-child,
+[data-theme="dark"] #jobListTableBody td:first-child *,
+[data-theme="dark"] #jobListTableBody td:first-child a,
+html[data-theme="dark"] #jobListTableBody td,
+html[data-theme="dark"] #jobListTableBody td *,
+html[data-theme="dark"] #jobListTableBody td:first-child,
+html[data-theme="dark"] #jobListTableBody td:first-child *,
+html[data-theme="dark"] #jobListTableBody td:first-child a,
+body[data-theme="dark"] #jobListTableBody td,
+body[data-theme="dark"] #jobListTableBody td *,
+body[data-theme="dark"] #jobListTableBody td:first-child,
+body[data-theme="dark"] #jobListTableBody td:first-child *,
+body[data-theme="dark"] #jobListTableBody td:first-child a {
+    color: #ffffff !important;
+}
+
+[data-theme="dark"] #jobListTableBody td:first-child a:hover,
+html[data-theme="dark"] #jobListTableBody td:first-child a:hover,
+body[data-theme="dark"] #jobListTableBody td:first-child a:hover {
+    color: #667eea !important;
+}

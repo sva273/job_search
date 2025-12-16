@@ -1,0 +1,683 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Statistics" %}{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center flex-wrap mb-3">
+            <h2 class="mb-3 mb-md-0">
+                <i class="bi bi-bar-chart-fill"></i> {% trans "Statistics" %}
+            </h2>
+            <div class="d-flex gap-2 flex-wrap">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-file-earmark-pdf-fill"></i> {% trans "Generate Report" %}
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'jobs:download_statistics_pdf' %}">
+                                <i class="bi bi-bar-chart-fill"></i> {% trans "Statistics Report" %}
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#monthlyReportModal">
+                                <i class="bi bi-calendar-month"></i> {% trans "Monthly Report" %}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="{% url 'jobs:job_list' %}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> {% trans "Back to Job List" %}
+                </a>
+                <a href="{% url 'jobs:dashboard' %}" class="btn btn-primary">
+                    <i class="bi bi-house-fill"></i> {% trans "Home" %}
+                </a>
+            </div>
+            
+            <!-- Modal for Monthly Report -->
+            <div class="modal fade" id="monthlyReportModal" tabindex="-1" aria-labelledby="monthlyReportModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="monthlyReportModalLabel">
+                                <i class="bi bi-calendar-month"></i> {% trans "Monthly Report" %}
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form method="get" action="{% url 'jobs:monthly_report' %}">
+                            <div class="modal-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="modal_month" class="form-label">{% trans "Month" %}</label>
+                                        <select name="month" id="modal_month" class="form-select" required>
+                                            <option value="1">{% trans "January" %}</option>
+                                            <option value="2">{% trans "February" %}</option>
+                                            <option value="3">{% trans "March" %}</option>
+                                            <option value="4">{% trans "April" %}</option>
+                                            <option value="5">{% trans "May" %}</option>
+                                            <option value="6">{% trans "June" %}</option>
+                                            <option value="7">{% trans "July" %}</option>
+                                            <option value="8">{% trans "August" %}</option>
+                                            <option value="9">{% trans "September" %}</option>
+                                            <option value="10">{% trans "October" %}</option>
+                                            <option value="11">{% trans "November" %}</option>
+                                            <option value="12">{% trans "December" %}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="modal_year" class="form-label">{% trans "Year" %}</label>
+                                        <input type="number" name="year" id="modal_year" class="form-control" 
+                                               value="{% now 'Y' %}" min="2020" max="{% now 'Y' %}" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="bi bi-file-earmark-pdf-fill"></i> {% trans "Generate PDF" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h5 class="mb-0"><i class="bi bi-info-circle-fill"></i> {% trans "General Statistics" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'jobs:job_list' %}" class="stat-card-link">
+                            <div class="stat-card stat-card-clickable">
+                                <i class="bi bi-briefcase-fill text-primary icon-lg"></i>
+                                <h3>{{ total_jobs }}</h3>
+                                <p class="text-muted mb-0">{% trans "Total Jobs" %}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'jobs:job_list' %}?resume_submitted=1" class="stat-card-link">
+                            <div class="stat-card stat-card-clickable">
+                                <i class="bi bi-file-earmark-check-fill text-success icon-lg"></i>
+                                <h3>{{ resume_submitted_count }}</h3>
+                                <p class="text-muted mb-0">{% trans "Resumes Submitted" %}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'jobs:job_list' %}?response_received=1" class="stat-card-link">
+                            <div class="stat-card stat-card-clickable">
+                                <i class="bi bi-envelope-check-fill text-info icon-lg"></i>
+                                <h3>{{ response_received_count }}</h3>
+                                <p class="text-muted mb-0">{% trans "Responses Received" %}</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'jobs:job_list' %}?rejection_received=1" class="stat-card-link">
+                            <div class="stat-card stat-card-clickable">
+                                <i class="bi bi-x-circle-fill text-danger icon-lg"></i>
+                                <h3>{{ rejection_received_count }}</h3>
+                                <p class="text-muted mb-0">{% trans "Rejections" %}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h5 class="mb-0"><i class="bi bi-pie-chart-fill"></i> {% trans "Status Distribution" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span class="badge bg-secondary">{% trans "Not Applied" %}</span></span>
+                        <strong class="fs-5">{{ not_applied }}</strong>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span class="badge bg-primary">{% trans "Applied" %}</span></span>
+                        <strong class="fs-5">{{ applied }}</strong>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span class="badge bg-info">{% trans "Application Confirmed" %}</span></span>
+                        <strong class="fs-5">{{ confirmed }}</strong>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span class="badge bg-success">{% trans "Response Received" %}</span></span>
+                        <strong class="fs-5">{{ response_received }}</strong>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span class="badge bg-danger">{% trans "Rejected" %}</span></span>
+                        <strong class="fs-5">{{ rejected }}</strong>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <span><span class="badge bg-success">{% trans "Accepted" %}</span></span>
+                        <strong class="fs-5">{{ accepted }}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header card-header-success">
+                <h5 class="mb-0"><i class="bi bi-percent"></i> {% trans "Success Rates" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold">
+                            <i class="bi bi-trophy-fill text-warning"></i> {% trans "Success Rate" %}:
+                        </span>
+                        <strong class="fs-4">{{ success_rate }}%</strong>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" 
+                             style="width: {{ success_rate }}%" 
+                             aria-valuenow="{{ success_rate }}" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <strong>{{ success_rate }}%</strong>
+                        </div>
+                    </div>
+                    <small class="text-muted d-block mt-2">
+                        <i class="bi bi-info-circle"></i> {% trans "Accepted / Submitted" %}
+                    </small>
+                </div>
+                
+                <div>
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <span class="fw-bold">
+                            <i class="bi bi-x-octagon-fill text-danger"></i> {% trans "Rejection Rate" %}:
+                        </span>
+                        <strong class="fs-4">{{ rejection_rate }}%</strong>
+                    </div>
+                    <div class="progress progress-lg">
+                        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" 
+                             style="width: {{ rejection_rate }}%" 
+                             aria-valuenow="{{ rejection_rate }}" 
+                             aria-valuemin="0" 
+                             aria-valuemax="100">
+                            <strong>{{ rejection_rate }}%</strong>
+                        </div>
+                    </div>
+                    <small class="text-muted d-block mt-2">
+                        <i class="bi bi-info-circle"></i> {% trans "Rejected / Submitted" %}
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-warning">
+                <h5 class="mb-0"><i class="bi bi-calendar-range-fill"></i> {% trans "Time-based Statistics" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="fw-bold mb-3">
+                                <i class="bi bi-calendar-week"></i> {% trans "Last Week" %}
+                            </h6>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="bi bi-briefcase text-primary"></i> {% trans "Jobs added" %}: 
+                                    <strong class="float-end">{{ jobs_last_week }}</strong>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-file-earmark-check text-success"></i> {% trans "Resumes submitted" %}: 
+                                    <strong class="float-end">{{ resumes_submitted_last_week }}</strong>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-envelope-check text-info"></i> {% trans "Responses received" %}: 
+                                    <strong class="float-end">{{ responses_last_week }}</strong>
+                                </li>
+                                <li>
+                                    <i class="bi bi-x-circle text-danger"></i> {% trans "Rejections" %}: 
+                                    <strong class="float-end">{{ rejections_last_week }}</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="fw-bold mb-3">
+                                <i class="bi bi-calendar-month"></i> {% trans "Last Month" %}
+                            </h6>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="bi bi-briefcase text-primary"></i> {% trans "Jobs added" %}: 
+                                    <strong class="float-end">{{ jobs_last_month }}</strong>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-file-earmark-check text-success"></i> {% trans "Resumes submitted" %}: 
+                                    <strong class="float-end">{{ resumes_submitted_last_month }}</strong>
+                                </li>
+                                <li class="mb-2">
+                                    <i class="bi bi-envelope-check text-info"></i> {% trans "Responses received" %}: 
+                                    <strong class="float-end">{{ responses_last_month }}</strong>
+                                </li>
+                                <li>
+                                    <i class="bi bi-x-circle text-danger"></i> {% trans "Rejections" %}: 
+                                    <strong class="float-end">{{ rejections_last_month }}</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="fw-bold mb-3">
+                                <i class="bi bi-calendar-year"></i> {% trans "Last Year" %}
+                            </h6>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <i class="bi bi-briefcase text-primary"></i> {% trans "Jobs added" %}: 
+                                    <strong class="float-end">{{ jobs_last_year }}</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if top_employers %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-dark">
+                <h5 class="mb-0"><i class="bi bi-trophy-fill"></i> {% trans "Top Employers" %}</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle top-employers-table">
+                        <thead class="{% if user_theme == 'dark' %}table-dark{% else %}table-light{% endif %}">
+                            <tr>
+                                <th class="w-60">#</th>
+                                <th>{% trans "Employer" %}</th>
+                                <th class="text-end">{% trans "Number of Jobs" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for employer in top_employers %}
+                            <tr>
+                                <td>
+                                    <span class="fw-bold">{{ forloop.counter }}</span>
+                                </td>
+                                <td>
+                                    <i class="bi bi-building"></i> {{ employer.employer }}
+                                </td>
+                                <td class="text-end">
+                                    <span class="badge bg-primary fs-6">{{ employer.count }}</span>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if monthly_stats %}
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-blue">
+                <h5 class="mb-0"><i class="bi bi-graph-up-arrow"></i> {% trans "Jobs Added by Month" %} ({% trans "Last 12 months" %})</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered text-center">
+                        <thead class="{% if user_theme == 'dark' %}table-dark{% else %}table-light{% endif %}">
+                            <tr>
+                                {% for stat in monthly_stats %}
+                                <th class="fw-bold">{{ stat.month|slice:"5:" }}</th>
+                                {% endfor %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                {% for stat in monthly_stats %}
+                                <td>
+                                    {% if stat.count > 0 %}
+                                        <span class="badge bg-primary fs-6">{{ stat.count }}</span>
+                                    {% else %}
+                                        <span class="text-muted">-</span>
+                                    {% endif %}
+                                </td>
+                                {% endfor %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="row mb-4">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h5 class="mb-0"><i class="bi bi-pie-chart-fill"></i> {% trans "Status Distribution" %}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="statusChart" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header card-header-success">
+                <h5 class="mb-0"><i class="bi bi-bar-chart-fill"></i> {% trans "Jobs by Priority" %}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="priorityChart" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header card-header-info">
+                <h5 class="mb-0"><i class="bi bi-graph-up"></i> {% trans "Monthly Activity" %}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="monthlyChart" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header card-header-warning">
+                <h5 class="mb-0"><i class="bi bi-pie-chart"></i> {% trans "Jobs by Source" %}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="sourceChart" height="250"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+    // Wait for Chart.js to load and DOM to be ready
+    window.addEventListener('load', function() {
+        // Check if Chart is available
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js is not loaded');
+            return;
+        }
+        
+        try {
+            // Status Distribution Chart
+            const statusCtx = document.getElementById('statusChart');
+            if (statusCtx) {
+                new Chart(statusCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    '{% trans "Not Applied" %}',
+                    '{% trans "Applied" %}',
+                    '{% trans "Application Confirmed" %}',
+                    '{% trans "Response Received" %}',
+                    '{% trans "Rejected" %}',
+                    '{% trans "Accepted" %}'
+                ],
+                datasets: [{
+                    data: [{{ not_applied }}, {{ applied }}, {{ confirmed }}, {{ response_received }}, {{ rejected }}, {{ accepted }}],
+                    backgroundColor: [
+                        '#6c757d',
+                        '#0d6efd',
+                        '#0dcaf0',
+                        '#198754',
+                        '#dc3545',
+                        '#20c997'
+                    ],
+                    borderWidth: 2,
+                    borderColor: document.body.classList.contains('dark-theme') ? '#2d2d44' : '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                        }
+                    }
+                }
+            }
+                });
+            }
+
+            // Priority Chart
+            const priorityCtx = document.getElementById('priorityChart');
+            if (priorityCtx) {
+                const priorityData = {};
+                {% if priority_stats %}
+                    {% for stat in priority_stats %}
+                    priorityData['{{ stat.priority|default:"N/A" }}'] = {{ stat.count }};
+                    {% endfor %}
+                {% endif %}
+                
+                // Ensure all priority values exist
+                if (!priorityData.hasOwnProperty('high')) priorityData['high'] = 0;
+                if (!priorityData.hasOwnProperty('medium')) priorityData['medium'] = 0;
+                if (!priorityData.hasOwnProperty('low')) priorityData['low'] = 0;
+                
+                new Chart(priorityCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['high', 'medium', 'low'].map(key => {
+                            const labels = {'high': '{% trans "High" %}', 'medium': '{% trans "Medium" %}', 'low': '{% trans "Low" %}'};
+                            return labels[key] || key;
+                        }),
+                        datasets: [{
+                            label: '{% trans "Number of Jobs" %}',
+                            data: ['high', 'medium', 'low'].map(key => priorityData[key] || 0),
+                            backgroundColor: ['#dc3545', '#ffc107', '#198754'],
+                            borderWidth: 2,
+                            borderColor: document.body.classList.contains('dark-theme') ? '#2d2d44' : '#ffffff'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                                },
+                                grid: {
+                                    color: document.body.classList.contains('dark-theme') ? '#3d3d5c' : '#e0e0e0'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                                },
+                                grid: {
+                                    color: document.body.classList.contains('dark-theme') ? '#3d3d5c' : '#e0e0e0'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Monthly Activity Chart
+            const monthlyCtx = document.getElementById('monthlyChart');
+            if (monthlyCtx) {
+                const monthlyLabels = [];
+                const monthlyData = [];
+                {% if monthly_stats %}
+                    {% for stat in monthly_stats %}
+                    monthlyLabels.push('{{ stat.month|slice:"5:" }}');
+                    monthlyData.push({{ stat.count }});
+                    {% endfor %}
+                {% else %}
+                    // Default empty data
+                    for (let i = 1; i <= 12; i++) {
+                        monthlyLabels.push(String(i).padStart(2, '0'));
+                        monthlyData.push(0);
+                    }
+                {% endif %}
+                
+                new Chart(monthlyCtx, {
+                    type: 'line',
+                    data: {
+                        labels: monthlyLabels,
+                        datasets: [{
+                            label: '{% trans "Jobs Added" %}',
+                            data: monthlyData,
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                                },
+                                grid: {
+                                    color: document.body.classList.contains('dark-theme') ? '#3d3d5c' : '#e0e0e0'
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                                },
+                                grid: {
+                                    color: document.body.classList.contains('dark-theme') ? '#3d3d5c' : '#e0e0e0'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Source Chart
+            const sourceCtx = document.getElementById('sourceChart');
+            if (sourceCtx) {
+                const sourceData = {};
+                {% if source_stats %}
+                    {% for stat in source_stats %}
+                    sourceData['{{ stat.source|default:"N/A" }}'] = {{ stat.count }};
+                    {% endfor %}
+                {% endif %}
+                
+                const sourceLabels = {
+                    'linkedin': '{% trans "LinkedIn" %}',
+                    'indeed': '{% trans "Indeed" %}',
+                    'company_website': '{% trans "Company Website" %}',
+                    'recruiter': '{% trans "Recruiter" %}',
+                    'referral': '{% trans "Referral" %}',
+                    'other': '{% trans "Other" %}'
+                };
+                
+                // Check if we have data
+                const sourceKeys = Object.keys(sourceData);
+                if (sourceKeys.length === 0) {
+                    // Show empty state
+                    sourceCtx.parentElement.innerHTML = '<p class="text-muted text-center py-3">{% trans "No data available" %}</p>';
+                } else {
+                    new Chart(sourceCtx, {
+                type: 'pie',
+                data: {
+                    labels: sourceKeys.map(key => sourceLabels[key] || key),
+                    datasets: [{
+                        data: sourceKeys.map(key => sourceData[key]),
+                        backgroundColor: [
+                            '#0077b5',
+                            '#2164f3',
+                            '#ff6b6b',
+                            '#4ecdc4',
+                            '#ffe66d',
+                            '#95a5a6'
+                        ].slice(0, sourceKeys.length),
+                        borderWidth: 2,
+                        borderColor: document.body.classList.contains('dark-theme') ? '#2d2d44' : '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: document.body.classList.contains('dark-theme') ? '#e0e0e0' : '#2c3e50'
+                            }
+                        }
+                    }
+                }
+                });
+            }
+        }
+        } catch (error) {
+            console.error('Error creating charts:', error);
+        }
+        
+        // Set current month as default in modal
+        const now = new Date();
+        const modalMonthSelect = document.getElementById('modal_month');
+        if (modalMonthSelect) {
+            modalMonthSelect.value = (now.getMonth() + 1).toString();
+        }
+    });
+</script>
+{% endblock %}

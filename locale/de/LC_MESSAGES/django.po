@@ -1,0 +1,1208 @@
+# German translations for job_search project
+# Copyright (C) 2024
+# This file is distributed under the same license as the job_search project.
+msgid ""
+msgstr ""
+"Project-Id-Version: job_search 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-27 17:42+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Not Applied"
+msgstr "Nicht beworben"
+
+msgid "Applied"
+msgstr "Beworben"
+
+msgid "Application Confirmed"
+msgstr "Bewerbung bestätigt"
+
+msgid "Response Received"
+msgstr "Antwort erhalten"
+
+msgid "Rejected"
+msgstr "Abgelehnt"
+
+msgid "Accepted"
+msgstr "Angenommen"
+
+msgid "High"
+msgstr "Hoch"
+
+msgid "Medium"
+msgstr "Mittel"
+
+msgid "Low"
+msgstr "Niedrig"
+
+msgid "Remote"
+msgstr "Remote"
+
+msgid "Office"
+msgstr "Büro"
+
+msgid "Home Office"
+msgstr "Home Office"
+
+msgid "Hybrid"
+msgstr "Hybrid"
+
+msgid "Flexible"
+msgstr "Flexibel"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Indeed"
+msgstr "Indeed"
+
+msgid "StepStone"
+msgstr "StepStone"
+
+msgid "XING"
+msgstr "XING"
+
+msgid "Employment Agency"
+msgstr "Agentur für Arbeit"
+
+msgid "Jobcenter"
+msgstr "Jobcenter"
+
+msgid "Company Website"
+msgstr "Firmenwebsite"
+
+msgid "Recruiter"
+msgstr "Personalvermittler"
+
+msgid "Referral"
+msgstr "Empfehlung"
+
+msgid "Other"
+msgstr "Andere"
+
+msgid "Resume Sent"
+msgstr "Lebenslauf gesendet"
+
+msgid "Confirmation of Receipt Received"
+msgstr "Bestätigung des Erhalts erhalten"
+
+msgid "Interview Scheduled"
+msgstr "Interview geplant"
+
+msgid "Interview Passed"
+msgstr "Bestätigung über bestandenes Interview"
+
+msgid "Another Interview Scheduled"
+msgstr "Weiteres Interview geplant"
+
+msgid "Documents Requested"
+msgstr "Dokumente angefordert"
+
+msgid "Additional Documents Requested"
+msgstr "Anfrage nach zusätzlichen Dokumenten"
+
+msgid "Rejection Received"
+msgstr "Ablehnung erhalten"
+
+msgid "First Name"
+msgstr "Vorname"
+
+msgid "Last Name"
+msgstr "Nachname"
+
+# Forms
+msgid "Username"
+msgstr "Benutzername"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Password confirmation"
+msgstr "Passwort bestätigen"
+
+msgid "Tags"
+msgstr "Tags"
+
+#, fuzzy
+#| msgid "Description"
+msgid "Optional description"
+msgstr "Beschreibung"
+
+#, fuzzy
+#| msgid "Category"
+msgid "Category Name"
+msgstr "Kategorie"
+
+msgid "Color"
+msgstr ""
+
+msgid "Tag Name"
+msgstr ""
+
+msgid "Theme"
+msgstr "Design"
+
+msgid "Email Notifications Enabled"
+msgstr "E-Mail-Benachrichtigungen aktiviert"
+
+msgid "Reminder Days Before"
+msgstr "Tage vorher erinnern"
+
+msgid "Optional notes"
+msgstr "Optionale Notizen"
+
+msgid "Status Type"
+msgstr "Statustyp"
+
+msgid "Date and Time"
+msgstr "Datum und Uhrzeit"
+
+msgid "Notes"
+msgstr "Notizen"
+
+#, fuzzy
+#| msgid "Job Search System"
+msgid "Job Search Reminders"
+msgstr "Stellensuchsystem"
+
+#, fuzzy
+#| msgid "Upcoming Interviews"
+msgid "Upcoming Interviews:"
+msgstr "Bevorstehende Interviews"
+
+#, fuzzy
+#| msgid "Follow-ups"
+msgid "Follow-ups:"
+msgstr "Nachfassaktionen"
+
+#, fuzzy
+#| msgid "Application Deadlines"
+msgid "Application Deadlines:"
+msgstr "Bewerbungsfristen"
+
+msgid "Visit your calendar to see all events:"
+msgstr ""
+
+msgid "Category"
+msgstr "Kategorie"
+
+#, fuzzy
+#| msgid "Category"
+msgid "Categories"
+msgstr "Kategorie"
+
+#, fuzzy
+#| msgid "Tags"
+msgid "Tag"
+msgstr "Tags"
+
+#, fuzzy
+#| msgid "Use Template"
+msgid "Template Name"
+msgstr "Vorlage verwenden"
+
+msgid "Job Title"
+msgstr "Stellenbezeichnung"
+
+msgid "Employer"
+msgstr "Arbeitgeber"
+
+msgid "Description"
+msgstr "Beschreibung"
+
+#, fuzzy
+#| msgid "Job Templates"
+msgid "Job Template"
+msgstr "Stellenvorlagen"
+
+msgid "Job Templates"
+msgstr "Stellenvorlagen"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Contact Email"
+msgstr "Kontakt-E-Mail"
+
+msgid "Phone"
+msgstr "Telefon"
+
+msgid "Job URL"
+msgstr "Stellen-URL"
+
+msgid "Salary Min"
+msgstr "Mindestgehalt"
+
+msgid "Salary Max"
+msgstr "Höchstgehalt"
+
+msgid "Currency"
+msgstr ""
+
+msgid "Work Type"
+msgstr "Arbeitsart"
+
+msgid "Priority"
+msgstr "Priorität"
+
+msgid "Source"
+msgstr "Quelle"
+
+msgid "Interview Date"
+msgstr "Interviewdatum"
+
+msgid "Follow-up Date"
+msgstr "Nachfassdatum"
+
+msgid "Application Deadline"
+msgstr "Bewerbungsfrist"
+
+msgid "Reminder Sent"
+msgstr ""
+
+msgid "Resume Submitted"
+msgstr "Lebenslauf eingereicht"
+
+msgid "Resume Submitted Date"
+msgstr "Datum der Einreichung"
+
+msgid "Confirmation Date"
+msgstr "Bestätigungsdatum"
+
+msgid "Response Date"
+msgstr "Antwortdatum"
+
+msgid "Rejection Date"
+msgstr "Ablehnungsdatum"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Job Entry"
+msgstr "Stellenangebot"
+
+msgid "Job Entries"
+msgstr "Stellenangebote"
+
+#, fuzzy
+#| msgid "Created"
+msgid "Created At"
+msgstr "Erstellt"
+
+msgid "Resume Submission Status"
+msgstr "Status der Lebenslaufeinreichung"
+
+msgid "Resume Submission Statuses"
+msgstr "Status der Lebenslaufeinreichung"
+
+#, fuzzy
+#| msgid "Field"
+msgid "Field Name"
+msgstr "Feld"
+
+msgid "Old Value"
+msgstr "Alter Wert"
+
+msgid "New Value"
+msgstr "Neuer Wert"
+
+msgid "Changed At"
+msgstr "Geändert am"
+
+#, fuzzy
+#| msgid "Job Entries"
+msgid "Job Entry History"
+msgstr "Stellenangebote"
+
+#, fuzzy
+#| msgid "Job Entries"
+msgid "Job Entry Histories"
+msgstr "Stellenangebote"
+
+msgid "File"
+msgstr ""
+
+msgid "File Name"
+msgstr ""
+
+msgid "File Type"
+msgstr ""
+
+#, fuzzy
+#| msgid "Upload"
+msgid "Uploaded At"
+msgstr "Hochladen"
+
+#, fuzzy
+#| msgid "Attachments"
+msgid "Attachment"
+msgstr "Anhänge"
+
+msgid "Attachments"
+msgstr "Anhänge"
+
+#, fuzzy
+#| msgid "Job Title"
+msgid "Title"
+msgstr "Stellenbezeichnung"
+
+msgid "Message"
+msgstr ""
+
+#, fuzzy
+#| msgid "Work Type"
+msgid "Type"
+msgstr "Arbeitsart"
+
+#, fuzzy
+#| msgid "Read"
+msgid "Is Read"
+msgstr "Gelesen"
+
+#, fuzzy
+#| msgid "Notifications"
+msgid "Notification"
+msgstr "Benachrichtigungen"
+
+msgid "Notifications"
+msgstr "Benachrichtigungen"
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "User Profile"
+msgstr ""
+
+msgid "User Profiles"
+msgstr ""
+
+msgid "Job Information"
+msgstr "Stelleninformationen"
+
+#, fuzzy
+#| msgid "Not Applied"
+msgid "Not specified"
+msgstr "Nicht beworben"
+
+msgid "Created"
+msgstr "Erstellt"
+
+msgid "Statistics"
+msgstr "Statistiken"
+
+# Forms
+#, fuzzy
+#| msgid "Username"
+msgid "User"
+msgstr "Benutzername"
+
+msgid "Report Date"
+msgstr "Berichtsdatum"
+
+msgid "General Statistics"
+msgstr "Allgemeine Statistiken"
+
+msgid "Total Jobs"
+msgstr "Gesamt Stellen"
+
+msgid "Resumes Submitted"
+msgstr "Lebensläufe eingereicht"
+
+msgid "Responses Received"
+msgstr "Antworten erhalten"
+
+msgid "Rejections"
+msgstr "Ablehnungen"
+
+msgid "Status Distribution"
+msgstr "Statusverteilung"
+
+msgid "Count"
+msgstr "Anzahl"
+
+msgid "Success Rates"
+msgstr "Erfolgsquoten"
+
+msgid "Indicator"
+msgstr "Indikator"
+
+msgid "Value"
+msgstr "Wert"
+
+msgid "Success Rate"
+msgstr "Erfolgsquote"
+
+msgid "Rejection Rate"
+msgstr "Ablehnungsquote"
+
+msgid "Time-based Statistics"
+msgstr "Zeitbasierte Statistiken"
+
+msgid "Period"
+msgstr "Zeitraum"
+
+msgid "Jobs Added"
+msgstr "Stellen hinzugefügt"
+
+msgid "Responses"
+msgstr "Antworten"
+
+msgid "Last Week"
+msgstr "Letzte Woche"
+
+msgid "Last Month"
+msgstr "Letzter Monat"
+
+msgid "Last Year"
+msgstr "Letztes Jahr"
+
+msgid "Top Employers"
+msgstr "Top Arbeitgeber"
+
+msgid "#"
+msgstr ""
+
+msgid "Number of Jobs"
+msgstr "Anzahl der Stellen"
+
+msgid "Jobs Added by Month"
+msgstr "Stellen nach Monaten"
+
+msgid "Last 12 months"
+msgstr "Letzte 12 Monate"
+
+msgid "Generated"
+msgstr "Generiert"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "March"
+msgstr "März"
+
+msgid "April"
+msgstr "April"
+
+msgid "May"
+msgstr "Mai"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "August"
+msgstr "August"
+
+msgid "September"
+msgstr "September"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "November"
+msgstr "November"
+
+msgid "December"
+msgstr "Dezember"
+
+msgid "Monthly Report"
+msgstr "Monatsbericht"
+
+msgid "Date"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+# Models
+#, fuzzy
+#| msgid "Resume"
+msgid "Result"
+msgstr "Lebenslauf"
+
+#, fuzzy
+#| msgid "Report Date"
+msgid "Result Date"
+msgstr "Berichtsdatum"
+
+msgid "No entries for this month"
+msgstr "Keine Einträge für diesen Monat"
+
+msgid "Total entries"
+msgstr "Gesamt Einträge"
+
+# Views messages
+#, python-format
+msgid "Welcome, %(username)s!"
+msgstr "Willkommen, %(username)s!"
+
+msgid "Job entry saved successfully!"
+msgstr "Stellenangebot erfolgreich gespeichert!"
+
+msgid "Job entry updated successfully!"
+msgstr "Stellenangebot erfolgreich aktualisiert!"
+
+#, fuzzy
+#| msgid "Theme updated successfully!"
+msgid "Resume submission status added successfully!"
+msgstr "Design erfolgreich aktualisiert!"
+
+#, fuzzy
+#| msgid "Template deleted successfully!"
+msgid "Resume submission status deleted successfully!"
+msgstr "Vorlage erfolgreich gelöscht!"
+
+msgid "Job entry deleted!"
+msgstr "Stellenangebot gelöscht!"
+
+#, python-format
+msgid "Error generating PDF: %(error)s"
+msgstr "Fehler beim Generieren des PDF: %(error)s"
+
+msgid "Template saved successfully!"
+msgstr "Vorlage erfolgreich gespeichert!"
+
+msgid "Job entry created from template!"
+msgstr "Stellenangebot aus Vorlage erstellt!"
+
+msgid "Template updated successfully!"
+msgstr "Vorlage erfolgreich aktualisiert!"
+
+msgid "Template deleted successfully!"
+msgstr "Vorlage erfolgreich gelöscht!"
+
+#, fuzzy
+#| msgid "Resume uploaded successfully!"
+msgid "File uploaded successfully!"
+msgstr "Lebenslauf erfolgreich hochgeladen!"
+
+#, fuzzy
+#| msgid "Attachments"
+msgid "Attachment deleted!"
+msgstr "Anhänge"
+
+msgid "All notifications marked as read!"
+msgstr "Alle Benachrichtigungen als gelesen markiert!"
+
+msgid "Theme updated successfully!"
+msgstr "Design erfolgreich aktualisiert!"
+
+msgid "Profile updated successfully!"
+msgstr "Profil erfolgreich aktualisiert!"
+
+msgid "Notification deleted successfully!"
+msgstr "Benachrichtigung erfolgreich gelöscht!"
+
+#, python-format
+msgid "%(count)s notification(s) deleted successfully!"
+msgstr "%(count)s Benachrichtigung(en) erfolgreich gelöscht!"
+
+#, fuzzy
+#| msgid "Template updated successfully!"
+msgid "Category created successfully!"
+msgstr "Vorlage erfolgreich aktualisiert!"
+
+#, fuzzy
+#| msgid "Category"
+msgid "Create Category"
+msgstr "Kategorie"
+
+#, fuzzy
+#| msgid "Template updated successfully!"
+msgid "Category updated successfully!"
+msgstr "Vorlage erfolgreich aktualisiert!"
+
+#, fuzzy
+#| msgid "Category"
+msgid "Edit Category"
+msgstr "Kategorie"
+
+#, fuzzy, python-format
+#| msgid "Template deleted successfully!"
+msgid "Category \"%(name)s\" deleted successfully!"
+msgstr "Vorlage erfolgreich gelöscht!"
+
+#, fuzzy
+#| msgid "Template updated successfully!"
+msgid "Tag created successfully!"
+msgstr "Vorlage erfolgreich aktualisiert!"
+
+#, fuzzy
+#| msgid "Create Template"
+msgid "Create Tag"
+msgstr "Vorlage erstellen"
+
+#, fuzzy
+#| msgid "Template updated successfully!"
+msgid "Tag updated successfully!"
+msgstr "Vorlage erfolgreich aktualisiert!"
+
+#, fuzzy
+#| msgid "Edit Template"
+msgid "Edit Tag"
+msgstr "Vorlage bearbeiten"
+
+#, fuzzy, python-format
+#| msgid "Template deleted successfully!"
+msgid "Tag \"%(name)s\" deleted successfully!"
+msgstr "Vorlage erfolgreich gelöscht!"
+
+# Templates
+msgid "Job Search"
+msgstr "Stellensuche"
+
+msgid "Home"
+msgstr "Startseite"
+
+msgid "Jobs"
+msgstr "Stellen"
+
+msgid "Manage"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+#, fuzzy
+#| msgid "Job Templates"
+msgid "Templates"
+msgstr "Stellenvorlagen"
+
+msgid "Hello"
+msgstr "Hallo"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Toggle Theme"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Month"
+msgstr "Monat"
+
+#, fuzzy
+#| msgid "Last Week"
+msgid "Week"
+msgstr "Letzte Woche"
+
+msgid "Day"
+msgstr ""
+
+msgid "Upcoming Interviews"
+msgstr "Bevorstehende Interviews"
+
+msgid "No upcoming interviews"
+msgstr "Keine bevorstehenden Interviews"
+
+msgid "Follow-ups"
+msgstr "Nachfassaktionen"
+
+msgid "No follow-ups scheduled"
+msgstr "Keine Nachfassaktionen geplant"
+
+msgid "Application Deadlines"
+msgstr "Bewerbungsfristen"
+
+msgid "No deadlines"
+msgstr "Keine Fristen"
+
+#, fuzzy
+#| msgid "Interview Date"
+msgid "Interview"
+msgstr "Interviewdatum"
+
+#, fuzzy
+#| msgid "Follow-ups"
+msgid "Follow-up"
+msgstr "Nachfassaktionen"
+
+#, fuzzy
+#| msgid "No deadlines"
+msgid "Deadline"
+msgstr "Keine Fristen"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Delete"
+msgstr "Löschen"
+
+#, fuzzy
+#| msgid ""
+#| "No templates yet. Create your first template to speed up job entry "
+#| "creation!"
+msgid ""
+"No categories yet. Create your first category to organize your job entries!"
+msgstr ""
+"Noch keine Vorlagen. Erstellen Sie Ihre erste Vorlage, um die Erstellung von "
+"Stellenangeboten zu beschleunigen!"
+
+msgid "Click the color picker to choose a color"
+msgstr ""
+
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgid "Save"
+msgstr "Speichern"
+
+msgid "Create Job"
+msgstr "Stelle erstellen"
+
+msgid "Create New Job Entry"
+msgstr "Neue Stelle erstellen"
+
+msgid "Use Template"
+msgstr "Vorlage verwenden"
+
+msgid "Creating job from template"
+msgstr "Stelle aus Vorlage erstellen"
+
+msgid "Additional Information"
+msgstr "Zusätzliche Informationen"
+
+msgid "Important Dates"
+msgstr "Wichtige Termine"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Welcome back"
+msgstr "Willkommen zurück"
+
+msgid "Quick Actions"
+msgstr "Schnellaktionen"
+
+msgid "All Jobs"
+msgstr "Alle Stellen"
+
+msgid "Latest Jobs"
+msgstr "Neueste Stellen"
+
+msgid "View All Jobs"
+msgstr "Alle Stellen anzeigen"
+
+msgid "No saved jobs yet."
+msgstr "Noch keine gespeicherten Stellen."
+
+msgid "Start by adding your first job entry"
+msgstr "Beginnen Sie mit dem Hinzufügen Ihrer ersten Stelle"
+
+msgid "Add Job"
+msgstr "Stelle hinzufügen"
+
+#, fuzzy
+#| msgid "Category"
+msgid "Delete Category"
+msgstr "Kategorie"
+
+#, python-format
+msgid ""
+"\n"
+"                <p>Are you sure you want to delete the category "
+"<strong>\"%(category_name)s\"</strong>?</p>\n"
+"                "
+msgstr ""
+
+msgid ""
+"This action cannot be undone. Job entries using this category will have "
+"their category set to empty."
+msgstr ""
+
+msgid "Delete Job"
+msgstr "Stelle löschen"
+
+msgid "Are you sure you want to delete the job:"
+msgstr "Sind Sie sicher, dass Sie die Stelle löschen möchten:"
+
+msgid "This action cannot be undone!"
+msgstr "Diese Aktion kann nicht rückgängig gemacht werden!"
+
+msgid "Yes, Delete"
+msgstr "Ja, löschen"
+
+#, fuzzy
+#| msgid "Delete"
+msgid "Delete Tag"
+msgstr "Löschen"
+
+#, python-format
+msgid ""
+"\n"
+"                <p>Are you sure you want to delete the tag "
+"<strong>\"%(tag_name)s\"</strong>?</p>\n"
+"                "
+msgstr ""
+
+msgid ""
+"This action cannot be undone. Job entries using this tag will have this tag "
+"removed."
+msgstr ""
+
+msgid "Edit Job"
+msgstr "Stelle bearbeiten"
+
+msgid "Add Status"
+msgstr "Status hinzufügen"
+
+msgid "Are you sure you want to delete this status?"
+msgstr "Sind Sie sicher, dass Sie diesen Status löschen möchten?"
+
+msgid "No resume submission statuses yet. Click 'Add Status' to add one."
+msgstr "Noch keine Status der Lebenslaufeinreichung. Klicken Sie auf 'Status hinzufügen', um einen hinzuzufügen."
+
+msgid "Add Resume Submission Status"
+msgstr "Status der Lebenslaufeinreichung hinzufügen"
+
+msgid "Remove Status"
+msgstr "Status entfernen"
+
+msgid "Status will be saved when you click 'Save Changes' button below."
+msgstr "Der Status wird gespeichert, wenn Sie unten auf die Schaltfläche 'Änderungen speichern' klicken."
+
+msgid "Save Changes"
+msgstr "Änderungen speichern"
+
+msgid "Edit Profile"
+msgstr "Profil bearbeiten"
+
+msgid "Number of days before deadline to send reminder"
+msgstr "Anzahl der Tage vor dem Termin, um eine Erinnerung zu senden"
+
+msgid "Edit Template"
+msgstr "Vorlage bearbeiten"
+
+msgid "Download PDF"
+msgstr "PDF herunterladen"
+
+msgid "View Job Posting"
+msgstr "Stellenanzeige anzeigen"
+
+msgid "Salary"
+msgstr "Gehalt"
+
+msgid "From"
+msgstr "Ab"
+
+msgid "Up to"
+msgstr "Bis"
+
+msgid "Download"
+msgstr "Herunterladen"
+
+msgid "Are you sure you want to delete this attachment?"
+msgstr "Sind Sie sicher, dass Sie diesen Anhang löschen möchten?"
+
+msgid "No attachments yet"
+msgstr "Noch keine Anhänge"
+
+msgid "Upload File"
+msgstr "Datei hochladen"
+
+msgid "Updated"
+msgstr "Aktualisiert"
+
+msgid "Change History"
+msgstr "Änderungsverlauf"
+
+msgid "Show All"
+msgstr "Alle anzeigen"
+
+msgid "Show Less"
+msgstr "Weniger anzeigen"
+
+msgid "Field"
+msgstr "Feld"
+
+msgid "Empty"
+msgstr "Leer"
+
+msgid "Back to List"
+msgstr "Zurück zur Liste"
+
+#, fuzzy
+#| msgid "Job Title"
+msgid "Job List"
+msgstr "Stellenbezeichnung"
+
+msgid "My Jobs"
+msgstr "Meine Stellen"
+
+msgid "Search by job title, employer or description..."
+msgstr "Suche nach Stellenbezeichnung, Arbeitgeber oder Beschreibung..."
+
+msgid "All Statuses"
+msgstr "Alle Status"
+
+msgid "Search"
+msgstr "Suchen"
+
+msgid "Actions"
+msgstr "Aktionen"
+
+msgid "View"
+msgstr "Ansehen"
+
+#, fuzzy
+#| msgid "No results found for"
+msgid "No results found"
+msgstr "Keine Ergebnisse gefunden für"
+
+msgid "You don't have any saved jobs yet."
+msgstr "Sie haben noch keine gespeicherten Stellen."
+
+msgid "Try adjusting your search criteria"
+msgstr ""
+
+msgid "Start tracking your job applications"
+msgstr ""
+
+msgid "Invalid username or password."
+msgstr "Ungültiger Benutzername oder Passwort."
+
+msgid "Don't have an account?"
+msgstr "Kein Konto?"
+
+msgid "unread"
+msgstr "ungelesen"
+
+msgid "Mark all as read"
+msgstr "Alle als gelesen markieren"
+
+msgid "Delete All"
+msgstr "Alle löschen"
+
+msgid "All Notifications"
+msgstr "Alle Benachrichtigungen"
+
+msgid "New"
+msgstr "Neu"
+
+msgid "View Job"
+msgstr "Stelle anzeigen"
+
+msgid "Read"
+msgstr "Gelesen"
+
+msgid "Mark as read"
+msgstr "Als gelesen markieren"
+
+msgid "Are you sure you want to delete this notification?"
+msgstr "Sind Sie sicher, dass Sie diese Benachrichtigung löschen möchten?"
+
+msgid "No notifications yet"
+msgstr "Noch keine Benachrichtigungen"
+
+#, fuzzy
+#| msgid "All Notifications"
+msgid "Delete Notification"
+msgstr "Alle Benachrichtigungen"
+
+msgid "Delete All Notifications"
+msgstr "Alle Benachrichtigungen löschen"
+
+msgid "Are you sure you want to delete all notifications?"
+msgstr "Sind Sie sicher, dass Sie alle Benachrichtigungen löschen möchten?"
+
+msgid ""
+"This will permanently delete all your notifications and cannot be undone!"
+msgstr ""
+"Dies wird alle Ihre Benachrichtigungen dauerhaft löschen und kann nicht "
+"rückgängig gemacht werden!"
+
+msgid "Yes, Delete All"
+msgstr "Ja, alle löschen"
+
+msgid "Registration"
+msgstr "Registrierung"
+
+msgid "Already have an account?"
+msgstr "Bereits ein Konto?"
+
+#, fuzzy
+#| msgid "Generated"
+msgid "Generate Report"
+msgstr "Generiert"
+
+#, fuzzy
+#| msgid "Statistics"
+msgid "Statistics Report"
+msgstr "Statistiken"
+
+msgid "Back to Job List"
+msgstr "Zurück zur Stellenliste"
+
+#, fuzzy
+msgid "Year"
+msgstr "Jahr"
+
+#, fuzzy
+#| msgid "Generated"
+msgid "Generate PDF"
+msgstr "Generiert"
+
+msgid "Accepted / Submitted"
+msgstr "Angenommen / Eingereicht"
+
+msgid "Rejected / Submitted"
+msgstr "Abgelehnt / Eingereicht"
+
+msgid "Jobs added"
+msgstr "Stellen hinzugefügt"
+
+msgid "Resumes submitted"
+msgstr "Lebensläufe eingereicht"
+
+msgid "Responses received"
+msgstr "Antworten erhalten"
+
+msgid "Jobs by Priority"
+msgstr "Stellen nach Priorität"
+
+msgid "Monthly Activity"
+msgstr "Monatliche Aktivität"
+
+msgid "Jobs by Source"
+msgstr "Stellen nach Quelle"
+
+msgid "No data available"
+msgstr "Keine Daten verfügbar"
+
+#, fuzzy
+#| msgid ""
+#| "No templates yet. Create your first template to speed up job entry "
+#| "creation!"
+msgid "No tags yet. Create your first tag to label your job entries!"
+msgstr ""
+"Noch keine Vorlagen. Erstellen Sie Ihre erste Vorlage, um die Erstellung von "
+"Stellenangeboten zu beschleunigen!"
+
+msgid "Create Template"
+msgstr "Vorlage erstellen"
+
+msgid "Save Template"
+msgstr "Vorlage speichern"
+
+msgid "Create Job from Template"
+msgstr "Stelle aus Vorlage erstellen"
+
+msgid "Delete Template"
+msgstr "Vorlage löschen"
+
+msgid "Are you sure you want to delete this template?"
+msgstr "Sind Sie sicher, dass Sie diese Vorlage löschen möchten?"
+
+msgid ""
+"No templates yet. Create your first template to speed up job entry creation!"
+msgstr ""
+"Noch keine Vorlagen. Erstellen Sie Ihre erste Vorlage, um die Erstellung von "
+"Stellenangeboten zu beschleunigen!"
+
+msgid "Upload Attachment"
+msgstr "Anhang hochladen"
+
+msgid "Job"
+msgstr "Stelle"
+
+msgid "Supported formats: PDF, DOC, DOCX, images, etc."
+msgstr "Unterstützte Formate: PDF, DOC, DOCX, Bilder usw."
+
+msgid "Upload"
+msgstr "Hochladen"
+
+#~ msgid "Monthly Report PDF"
+#~ msgstr "Monatsbericht PDF"
+
+#~ msgid "Download PDF Report"
+#~ msgstr "PDF-Bericht herunterladen"
+
+#~ msgid "Resumes"
+#~ msgstr "Lebensläufe"
+
+#~ msgid "File size must not exceed 10 MB"
+#~ msgstr "Die Dateigröße darf 10 MB nicht überschreiten"
+
+#~ msgid "Only PDF and DOCX files are supported"
+#~ msgstr "Nur PDF- und DOCX-Dateien werden unterstützt"
+
+#~ msgid "Data extracted successfully! Please review and edit the information."
+#~ msgstr ""
+#~ "Daten erfolgreich extrahiert! Bitte überprüfen und bearbeiten Sie die "
+#~ "Informationen."
+
+#~ msgid ""
+#~ "Failed to extract data from the page. Please enter the information "
+#~ "manually."
+#~ msgstr ""
+#~ "Daten konnten nicht von der Seite extrahiert werden. Bitte geben Sie die "
+#~ "Informationen manuell ein."
+
+#~ msgid "Parse"
+#~ msgstr "Analysieren"
+
+# Notification translations
+#, python-format
+msgid "Upcoming interview: %(job_title)s"
+msgstr "Bevorstehendes Interview: %(job_title)s"
+
+#, python-format
+msgid "Interview scheduled for %(date)s"
+msgstr "Interview geplant für %(date)s"
+
+#, python-format
+msgid "Follow-up reminder: %(job_title)s"
+msgstr "Nachfass-Erinnerung: %(job_title)s"
+
+#, python-format
+msgid "Follow-up scheduled for %(date)s"
+msgstr "Nachfass geplant für %(date)s"
+
+#, python-format
+msgid "Application deadline: %(job_title)s"
+msgstr "Bewerbungsfrist: %(job_title)s"
+
+#, python-format
+msgid "Application deadline: %(date)s"
+msgstr "Bewerbungsfrist: %(date)s"
+
+msgid "Date Validation Error"
+msgstr "Datumsvalidierungsfehler"
+
+msgid "Date cannot be earlier than the job entry creation date"
+msgstr "Das Datum darf nicht früher als das Erstellungsdatum des Stellenangebots sein"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nein"

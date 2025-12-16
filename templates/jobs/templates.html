@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Job Templates" %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="bi bi-file-earmark-text"></i> {% trans "Job Templates" %}</h2>
+            <a href="{% url 'jobs:create_job' %}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> {% trans "Create Job" %}
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h5 class="mb-0"><i class="bi bi-plus-circle-fill"></i> {% trans "Create Template" %}</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                            <div class="mb-3">
+                                <label for="{{ form.name.id_for_label }}" class="form-label fw-bold">
+                                    <i class="bi bi-tag"></i> {{ form.name.label }} <span class="text-danger">*</span>
+                                </label>
+                                {{ form.name }}
+                                {% if form.name.errors %}
+                                    <div class="text-danger small mt-1">{{ form.name.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="{{ form.job_title.id_for_label }}" class="form-label fw-bold">
+                                    <i class="bi bi-briefcase"></i> {{ form.job_title.label }}
+                                </label>
+                                {{ form.job_title }}
+                                {% if form.job_title.errors %}
+                                    <div class="text-danger small mt-1">{{ form.job_title.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="{{ form.employer.id_for_label }}" class="form-label fw-bold">
+                                    <i class="bi bi-building"></i> {{ form.employer.label }}
+                                </label>
+                                {{ form.employer }}
+                                {% if form.employer.errors %}
+                                    <div class="text-danger small mt-1">{{ form.employer.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="{{ form.description.id_for_label }}" class="form-label fw-bold">
+                                    <i class="bi bi-file-text"></i> {{ form.description.label }}
+                                </label>
+                                {{ form.description }}
+                                {% if form.description.errors %}
+                                    <div class="text-danger small mt-1">{{ form.description.errors }}</div>
+                                {% endif %}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-save"></i> {% trans "Save Template" %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                {% if templates %}
+                    <div class="row">
+                        {% for template in templates %}
+                            <div class="col-md-6 mb-3">
+                                <div class="card h-100">
+                                    <div class="card-header card-header-warning d-flex justify-content-between align-items-center">
+                                        <h6 class="mb-0"><i class="bi bi-file-earmark-text"></i> {{ template.name }}</h6>
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a href="{% url 'jobs:create_from_template' template.id %}" class="btn btn-light btn-sm" title="{% trans 'Create Job from Template' %}">
+                                                <i class="bi bi-plus-circle"></i>
+                                            </a>
+                                            <a href="{% url 'jobs:edit_template' template.id %}" class="btn btn-light btn-sm" title="{% trans 'Edit Template' %}">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
+                                            <form action="{% url 'jobs:delete_template' template.id %}" method="post" class="form-inline">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-light btn-sm" title="{% trans 'Delete Template' %}" onclick="return confirm('{% trans "Are you sure you want to delete this template?" %}')">
+                                                    <i class="bi bi-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        {% if template.job_title %}
+                                            <p class="mb-1">
+                                                <strong><i class="bi bi-briefcase"></i> {% trans "Job Title" %}:</strong><br>
+                                                {{ template.job_title }}
+                                            </p>
+                                        {% endif %}
+                                        {% if template.employer %}
+                                            <p class="mb-1">
+                                                <strong><i class="bi bi-building"></i> {% trans "Employer" %}:</strong><br>
+                                                {{ template.employer }}
+                                            </p>
+                                        {% endif %}
+                                        {% if template.description %}
+                                            <p class="mb-1">
+                                                <strong><i class="bi bi-file-text"></i> {% trans "Description" %}:</strong><br>
+                                                <small class="text-muted">{{ template.description|truncatewords:20 }}</small>
+                                            </p>
+                                        {% endif %}
+                                    </div>
+                                    <div class="card-footer text-muted small">
+                                        <i class="bi bi-calendar"></i> {% trans "Updated" %}: {{ template.updated_at|date:"d.m.Y H:i" }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="card">
+                        <div class="card-body text-center py-5">
+                            <i class="bi bi-file-earmark-text icon-xl icon-muted"></i>
+                            <p class="text-muted mt-3">{% trans "No templates yet. Create your first template to speed up job entry creation!" %}</p>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

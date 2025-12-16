@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Tags" %}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="bi bi-tags"></i> {% trans "Tags" %}</h2>
+            <a href="{% url 'jobs:create_tag' %}" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> {% trans "Create Tag" %}
+            </a>
+        </div>
+
+        {% if tags %}
+            <div class="row">
+                {% for tag in tags %}
+                    <div class="col-md-3 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="mb-2">
+                                    <i class="bi bi-tag"></i> {{ tag.name }}
+                                </h5>
+                                <p class="text-muted small mb-0">
+                                    <i class="bi bi-calendar"></i> {% trans "Created" %}: {{ tag.created_at|date:"d.m.Y" }}
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="btn-group w-100" role="group">
+                                    <a href="{% url 'jobs:edit_tag' tag.id %}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-pencil"></i> {% trans "Edit" %}
+                                    </a>
+                                    <a href="{% url 'jobs:delete_tag' tag.id %}" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-trash"></i> {% trans "Delete" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="card">
+                <div class="card-body text-center py-5">
+                    <i class="bi bi-tags icon-xl icon-muted"></i>
+                    <p class="text-muted mt-3">{% trans "No tags yet. Create your first tag to label your job entries!" %}</p>
+                    <a href="{% url 'jobs:create_tag' %}" class="btn btn-primary mt-3">
+                        <i class="bi bi-plus-circle"></i> {% trans "Create Tag" %}
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
